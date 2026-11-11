@@ -1,4 +1,5 @@
 @font-face{font-family:"Inter";src:url(fonts/inter-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url(fonts/source-serif-4-latin-wght-normal.woff2) format("woff2");font-weight:200 900;font-style:normal;font-display:swap}
 
 :root{
   --ground:#F5F5F2;
@@ -432,3 +433,11 @@ input,textarea{cursor:text}
   .m-acc .item.open .item-in{padding-bottom:26px;visibility:visible;transition:none}
   .m-acc .item-in .btn{margin-bottom:6px}
 }
+
+/* ---------- Serif display type ---------- */
+:root{--serif:"Source Serif 4",Georgia,"Times New Roman",serif}
+h1,h2,h3,.item-t,.ticker-track span,.giant,.mnav a:not(.mn-s),.dd-intro p,.dd-c b,.fl-box h3,.about-body p{font-family:var(--serif);font-weight:400;letter-spacing:-.015em}
+h1,h2,.giant,.ticker-track span{letter-spacing:-.025em}
+.item-t{font-weight:400}
+.hero h1,.giant{line-height:1}
+h1,h2,.giant,.ticker-track span{font-weight:360}
