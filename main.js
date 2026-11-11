@@ -185,34 +185,11 @@
     var y = window.scrollY, vh = window.innerHeight, dy = y - lastY;
 
     // Header: solid after the top, hides going down, returns going up.
-    bar.classList.toggle('solid', y > 12);
     if (Math.abs(dy) > 6) {
       bar.classList.toggle('hide', dy > 0 && y > 240);
       lastY = y;
     }
 
-    // Header takes the colour of the section under it.
-    var theme = '';
-    navSections.forEach(function (s) {
-      var r = s.getBoundingClientRect();
-      if (r.top <= 36 && r.bottom > 36) theme = s.getAttribute('data-nav');
-    });
-    if (theme) bar.setAttribute('data-theme', theme); else bar.removeAttribute('data-theme');
-
-    if (RM) return;
-
-    driveScene(vh);
-
-    // Blocks rise out of the closing section.
-    if (rise && riseCols.length) {
-      var rr = rise.getBoundingClientRect();
-      var P = clamp((vh - rr.top) / (rr.height * 1.5));
-      riseCols.forEach(function (c) {
-        c.style.setProperty('--rp', clamp(P * 1.7 - (+c.getAttribute('data-o')) * 0.7).toFixed(3));
-      });
-    }
-
-    // Hero blocks drift up a little slower than the page.
     if (growth && y < vh * 1.2) growth.style.transform = 'translate3d(0,' + (y * -0.07).toFixed(1) + 'px,0)';
 
     // Statement words fill.
