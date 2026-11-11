@@ -112,6 +112,7 @@
   function setScene() {
     if (!scene) return;
     var live = !RM && window.innerWidth > 860 && window.innerHeight > 620;
+    scene.classList.toggle('m-acc', !live);
     if (live === sceneLive) return;
     sceneLive = live;
     scene.classList.toggle('scene-live', live);
@@ -134,6 +135,7 @@
     });
   }
 
+  if (items.length) items[0].classList.add('open');
   function goStep(i) {
     var r = scene.getBoundingClientRect();
     var y = window.scrollY + r.top + (r.height - window.innerHeight) * ((i + 0.35) / items.length);
@@ -142,7 +144,10 @@
   if (scene) {
     scene.querySelectorAll('.item-t').forEach(function (b) {
       b.addEventListener('click', function () {
-        if (sceneLive) goStep(+b.getAttribute('data-step'));
+        if (sceneLive) { goStep(+b.getAttribute('data-step')); return; }
+        var li = b.closest('.item'), was = li.classList.contains('open');
+        items.forEach(function (it) { it.classList.remove('open'); });
+        if (!was) li.classList.add('open');
       });
     });
   }

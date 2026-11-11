@@ -413,3 +413,22 @@ input,textarea{cursor:text}
   .mnav,.mnav a{transition:none}
   .prog-bar{display:none}
 }
+
+/* ---------- Phone polish ---------- */
+@media (max-width:860px){
+  .brand{border-right:0}
+  .fl-col{display:block}
+  .fl-ic{position:absolute;right:16px;top:16px;z-index:1;display:block}
+  .fl-ic svg{width:50px}
+  .fl-box{padding:20px 86px 22px 20px}
+  .fl-box p{font-size:1rem}
+  .stack{max-width:250px;margin:8px auto 0}
+  .m-acc .item-t{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;cursor:pointer}
+  .m-acc .item-t::after{content:"+";font-size:1.6rem;font-weight:200;line-height:1;transition:transform .35s var(--ease)}
+  .m-acc .item.open .item-t::after{transform:rotate(45deg)}
+  .m-acc .item-b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .m-acc .item.open .item-b{grid-template-rows:1fr}
+  .m-acc .item-in{overflow:hidden;min-height:0;padding-bottom:0;visibility:hidden;transition:visibility 0s .5s}
+  .m-acc .item.open .item-in{padding-bottom:26px;visibility:visible;transition:none}
+  .m-acc .item-in .btn{margin-bottom:6px}
+}
