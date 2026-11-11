@@ -417,7 +417,8 @@ input,textarea{cursor:text}
 
 /* ---------- Phone polish ---------- */
 @media (max-width:860px){
-  .brand{border-right:0}
+  .brand{flex:1;border-right:0}
+  .menu-t{margin-left:0;border-right:0}
   .fl-col{display:block}
   .fl-ic{position:absolute;right:16px;top:16px;z-index:1;display:block}
   .fl-ic svg{width:50px}
