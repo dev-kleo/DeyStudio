@@ -11,14 +11,22 @@
 <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <script>var d=document.documentElement;d.classList.add('js');setTimeout(function(){if(!window.__dey)d.classList.add('show-all')},4000)</script>
+<script src="lenis.min.js" defer></script>
 <script src="main.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="loader" aria-hidden="true">
+  <div class="loader-in">
+    <svg viewBox="0 0 32 32" width="40" height="40"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle cx="25.5" cy="6.5" r="3" fill="#0B4FD6"/></svg>
+    <span>Dey Studio</span>
+  </div>
+</div>
+
 <header class="bar" id="top">
   <a class="brand" href="#top" aria-label="Dey Studio, back to top">
-    <svg class="mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle cx="25.5" cy="6.5" r="3" fill="#0B4FD6"/></svg>
+    <svg class="mark" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle class="dot" cx="25.5" cy="6.5" r="3"/></svg>
     <span>Dey Studio</span>
   </a>
   <nav class="links" aria-label="Main">
@@ -34,7 +42,7 @@
   <section class="hero" aria-labelledby="h-hero">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <h1 id="h-hero" class="rv">Websites that win customers.</h1>
+        <h1 id="h-hero" data-roll>Websites that win customers.</h1>
         <p class="lead rv" style="--i:1">I design and build websites, then run the Google, Facebook and ChatGPT ads that send people to them.</p>
         <div class="rv" style="--i:2"><a class="btn" href="#contact" data-open-contact>Grow my business</a></div>
       </div>
@@ -49,16 +57,23 @@
     </div>
   </section>
 
-  <section class="band" aria-labelledby="h-gap">
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Websites</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
+      <span>Websites</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
+    </div>
+  </div>
+
+  <section class="band" data-nav="blue" aria-labelledby="h-gap">
     <div class="wrap band-grid">
-      <h2 id="h-gap" class="rv">Your competitor's site works harder.</h2>
-      <p class="rv" style="--i:1">Most small businesses lose customers before anyone calls. The site is slow, looks dated, or never says what to do next. I fix that first, then send the right people to it.</p>
+      <h2 id="h-gap" data-roll>Your competitor's site works harder.</h2>
+      <p data-fill>Most small businesses lose customers before anyone calls. The site is slow, looks dated, or never says what to do next. I fix that first, then send the right people to it.</p>
     </div>
   </section>
 
   <section class="sec" id="services" aria-labelledby="h-serv">
     <div class="wrap split">
-      <div class="split-head"><h2 id="h-serv" class="rv">Four ways I grow your business.</h2></div>
+      <div class="split-head"><h2 id="h-serv" data-roll>Four ways I grow your business.</h2></div>
       <ul class="svc">
         <li class="rv" style="--i:0">
           <a class="row" href="#contact" data-open-contact data-topic="a new website">
@@ -94,7 +109,7 @@
 
   <section class="sec tone" id="process" aria-labelledby="h-proc">
     <div class="wrap">
-      <h2 id="h-proc" class="rv">From first chat to first customers.</h2>
+      <h2 id="h-proc" data-roll>From first chat to first customers.</h2>
       <ol class="steps">
         <li class="rv" style="--i:0"><h3>We talk</h3><p>You tell me about your business, your customers and what a good month looks like.</p></li>
         <li class="rv" style="--i:1"><h3>I plan and build</h3><p>A clear plan, a design you approve, then the website and the ad campaigns.</p></li>
@@ -106,7 +121,7 @@
 
   <section class="sec" id="faq" aria-labelledby="h-faq">
     <div class="wrap split">
-      <div class="split-head"><h2 id="h-faq" class="rv">Questions owners ask.</h2></div>
+      <div class="split-head"><h2 id="h-faq" data-roll>Questions owners ask.</h2></div>
       <div class="faq">
         <details class="rv" style="--i:0">
           <summary>How much does it cost?</summary>
@@ -132,9 +147,9 @@
     </div>
   </section>
 
-  <section class="close" id="contact" aria-labelledby="h-close">
+  <section class="close" data-nav="dark" id="contact" aria-labelledby="h-close">
     <div class="wrap close-grid">
-      <h2 id="h-close" class="rv">Tell me what you want to grow.</h2>
+      <h2 id="h-close" data-roll>Tell me what you want to grow.</h2>
       <div class="close-side rv" style="--i:1">
         <p>Send a message or chat on WhatsApp. I read and answer every enquiry myself.</p>
         <a class="btn btn-light" href="mailto:hello.deyabhishek@gmail.com?subject=Grow%20my%20business" data-open-contact>Grow my business</a>
@@ -144,9 +159,9 @@
 
 </main>
 
-<footer class="foot">
+<footer class="foot" data-nav="dark">
   <div class="wrap">
-    <p class="giant" aria-hidden="true">Dey Studio</p>
+    <p class="giant" data-letters aria-hidden="true">Dey Studio</p>
     <div class="foot-row">
       <span>&copy; 2026 Dey Studio</span>
       <a href="mailto:hello.deyabhishek@gmail.com">hello.deyabhishek@gmail.com</a>

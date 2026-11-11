@@ -8,7 +8,8 @@ Plain static site. No build step, no dependencies.
 
 - `index.html` – the whole page
 - `styles.css` – design tokens and layout (off-white, ink, one cobalt accent; Inter variable font, self-hosted)
-- `main.js` – scroll reveals, header behaviour, "Grow my business" contact dialog
+- `main.js` – all motion (loader, rolling headlines, falling hero blocks, scroll-linked effects, header) and the "Grow my business" contact dialog
+- `lenis.min.js` – Lenis smooth scrolling (MIT, darkroom.engineering), self-hosted
 - `fonts/` – Inter variable (latin), self-hosted
 - `favicon.svg`
 
