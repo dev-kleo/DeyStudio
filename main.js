@@ -444,3 +444,17 @@
 
   window.__dey = 1;
 })();
+
+/* mobile sticky CTA: show after hero, hide near contact/footer */
+(function () {
+  var b = document.querySelector('.m-cta'), hero = document.querySelector('.hero'),
+      end = [document.getElementById('contact'), document.querySelector('.foot')];
+  if (!b || !hero || !('IntersectionObserver' in window)) return;
+  var past = false, atEnd = 0;
+  function upd() { var on = past && !atEnd; b.classList.toggle('show', on); b.tabIndex = on ? 0 : -1; b.setAttribute('aria-hidden', on ? 'false' : 'true'); }
+  new IntersectionObserver(function (e) { past = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(hero);
+  end.forEach(function (el) {
+    if (!el) return;
+    new IntersectionObserver(function (e) { atEnd += e[0].isIntersecting ? 1 : -1; if (atEnd < 0) atEnd = 0; upd(); }).observe(el);
+  });
+})();
