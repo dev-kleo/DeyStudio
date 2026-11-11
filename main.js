@@ -133,17 +133,53 @@
     });
   }
 
+  function goStep(i) {
+    var r = scene.getBoundingClientRect();
+    var y = window.scrollY + r.top + (r.height - window.innerHeight) * ((i + 0.35) / items.length);
+    if (lenis) lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' });
+  }
   if (scene) {
     scene.querySelectorAll('.item-t').forEach(function (b) {
       b.addEventListener('click', function () {
-        if (!sceneLive) return;
-        var i = +b.getAttribute('data-step');
-        var r = scene.getBoundingClientRect();
-        var y = window.scrollY + r.top + (r.height - window.innerHeight) * ((i + 0.35) / items.length);
-        if (lenis) lenis.scrollTo(y); else window.scrollTo({ top: y, behavior: 'smooth' });
+        if (sceneLive) goStep(+b.getAttribute('data-step'));
       });
     });
   }
+
+  /* ---------- Services dropdown ---------- */
+  (function () {
+    var t = document.querySelector('.dd-t'), dd = document.getElementById('dd-services');
+    if (!t || !dd) return;
+    var tiles = dd.querySelector('.dd-tiles'), ht, th = '';
+    for (var i = 0; i < 32; i++) th += '<i style="--d:' + (Math.random() * 3).toFixed(2) + 's"></i>';
+    tiles.innerHTML = th;
+    function open(v) {
+      if (v) {
+        var l = t.getBoundingClientRect().left;
+        dd.style.setProperty('--ddx', Math.max(0, Math.min(l, window.innerWidth - Math.min(1040, window.innerWidth - 2 * 24) - 24)) + 'px');
+      }
+      dd.classList.toggle('open', v);
+      t.setAttribute('aria-expanded', v ? 'true' : 'false');
+    }
+    var hov = window.matchMedia('(hover:hover)').matches;
+    t.addEventListener('click', function () { open(hov ? true : !dd.classList.contains('open')); });
+    if (hov) {
+      [t, dd].forEach(function (el) {
+        el.addEventListener('mouseenter', function () { clearTimeout(ht); open(true); });
+        el.addEventListener('mouseleave', function () { ht = setTimeout(function () { open(false); }, 180); });
+      });
+    }
+    document.addEventListener('click', function (e) { if (!dd.contains(e.target) && !t.contains(e.target)) open(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { open(false); } });
+    window.addEventListener('scroll', function () { if (bar.classList.contains('hide')) open(false); }, { passive: true });
+    dd.querySelectorAll('[data-svc]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        open(false);
+        if (sceneLive && scene) { e.preventDefault(); e.stopPropagation(); goStep(+a.getAttribute('data-svc')); }
+      });
+    });
+    dd.querySelector('.dd-go').addEventListener('click', function () { open(false); });
+  })();
 
   /* ---------- Rising blocks ---------- */
 
@@ -190,6 +226,20 @@
       lastY = y;
     }
 
+    if (RM) return;
+
+    driveScene(vh);
+
+    // Blocks rise out of the closing section.
+    if (rise && riseCols.length) {
+      var rr = rise.getBoundingClientRect();
+      var P = clamp((vh - rr.top) / (rr.height * 1.5));
+      riseCols.forEach(function (c) {
+        c.style.setProperty('--rp', clamp(P * 1.7 - (+c.getAttribute('data-o')) * 0.7).toFixed(3));
+      });
+    }
+
+    // Hero blocks drift up a little slower than the page.
     if (growth && y < vh * 1.2) growth.style.transform = 'translate3d(0,' + (y * -0.07).toFixed(1) + 'px,0)';
 
     // Statement words fill.

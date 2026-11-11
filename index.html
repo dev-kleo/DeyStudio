@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dey Studio: websites and ads that win customers</title>
-<meta name="description" content="Dey Studio designs and builds websites and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.">
+<meta name="description" content="Dey Studio designs and builds websites and online shops and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.">
 <meta name="theme-color" content="#F5F5F2">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -30,10 +30,22 @@
     <span>Dey Studio</span>
   </a>
   <nav class="links" aria-label="Main">
-    <a class="cell" href="#services">Services</a>
+    <button type="button" class="cell dd-t" aria-expanded="false" aria-controls="dd-services">Services<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
     <a class="cell" href="#process">Process</a>
     <a class="cell" href="#faq">Questions</a>
   </nav>
+  <div class="dd" id="dd-services" hidden>
+    <div class="dd-in">
+      <div class="dd-intro"><span>Services</span><p>Websites, online shops and ads that bring in customers.</p></div>
+      <div class="dd-tiles" aria-hidden="true"></div>
+      <a class="dd-c" href="#services" data-svc="0"><span><b>Website design and development</b><small>Fast, clear sites that turn visitors into enquiries.</small></span><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><rect x="4" y="6" width="28" height="22"/><path d="M4 13h28M9 9.5h2M14 9.5h2"/><path d="M10 20h9M10 24h14"/></svg></a>
+      <a class="dd-c" href="#services" data-svc="1"><span><b>Ecommerce websites</b><small>Online shops that are easy to buy from.</small></span><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><path d="M7 12h22l2 18H5z"/><path d="M12 12V9a6 6 0 0 1 12 0v3"/></svg></a>
+      <a class="dd-c" href="#services" data-svc="2"><span><b>Google Ads</b><small>Show up when people search for what you sell.</small></span><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><circle cx="15" cy="15" r="9"/><path d="M22 22l9 9"/></svg></a>
+      <a class="dd-c" href="#services" data-svc="3"><span><b>Facebook ads</b><small>Reach the right people on Facebook and Instagram.</small></span><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><rect x="6" y="4" width="24" height="28"/><circle cx="12" cy="11" r="3"/><path d="M18 11h8M6 20h24M10 26h10"/></svg></a>
+      <a class="dd-c" href="#services" data-svc="4"><span><b>ChatGPT ads</b><small>Be there when customers ask ChatGPT what to buy.</small></span><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><path d="M4 6h22v15H14l-6 6v-6H4z"/><path d="M12 12h6"/><path d="M28 14h4v14h-4v5l-5-5h-6v-4"/></svg></a>
+      <a class="dd-c dd-go" href="#contact" data-open-contact><span><b>Not sure yet?</b><small>Tell me about your business.</small></span><span class="dd-arrow">→</span></a>
+    </div>
+  </div>
   <a class="cell gh" href="https://github.com/dev-kleo" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg><span>GitHub</span></a>
   <a class="bar-cta" href="#contact" data-open-contact>Grow my business</a>
 </header>
@@ -60,8 +72,8 @@
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Websites</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
-      <span>Websites</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
+      <span>Websites</span><span>Online shops</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
+      <span>Websites</span><span>Online shops</span><span>Google Ads</span><span>Facebook ads</span><span>ChatGPT ads</span><span>More enquiries</span>
     </div>
   </div>
 
@@ -73,7 +85,7 @@
     <div class="scene" data-scene>
       <div class="scene-pin wrap">
         <div class="acc">
-          <h2 id="h-serv" data-roll>Four ways I grow your business.</h2>
+          <h2 id="h-serv" data-roll>Five ways I grow your business.</h2>
           <ul class="svc">
           <li class="item">
             <h3><button type="button" class="item-t" data-step="0">Website design and development</button></h3>
@@ -84,7 +96,15 @@
             <i class="prog"></i>
           </li>
           <li class="item">
-            <h3><button type="button" class="item-t" data-step="1">Google Ads</button></h3>
+            <h3><button type="button" class="item-t" data-step="1">Ecommerce websites</button></h3>
+            <div class="item-b"><div class="item-in">
+              <p>An online shop that is easy to browse and easy to buy from. Clear product pages, a simple checkout, and tracking so you see which products and ads bring in orders. Yours to keep.</p>
+              <a class="btn btn-light btn-sm" href="#contact" data-open-contact data-topic="an ecommerce website">Grow my business</a>
+            </div></div>
+            <i class="prog"></i>
+          </li>
+          <li class="item">
+            <h3><button type="button" class="item-t" data-step="2">Google Ads</button></h3>
             <div class="item-b"><div class="item-in">
               <p>Show up when people search for what you sell. I build the campaigns, watch the spend, and report on enquiries, not just clicks.</p>
               <a class="btn btn-light btn-sm" href="#contact" data-open-contact data-topic="Google Ads">Grow my business</a>
@@ -92,7 +112,7 @@
             <i class="prog"></i>
           </li>
           <li class="item">
-            <h3><button type="button" class="item-t" data-step="2">Facebook ads</button></h3>
+            <h3><button type="button" class="item-t" data-step="3">Facebook ads</button></h3>
             <div class="item-b"><div class="item-in">
               <p>Reach the right people on Facebook and Instagram with clear offers that make them stop scrolling and message you.</p>
               <a class="btn btn-light btn-sm" href="#contact" data-open-contact data-topic="Facebook ads">Grow my business</a>
@@ -100,7 +120,7 @@
             <i class="prog"></i>
           </li>
           <li class="item">
-            <h3><button type="button" class="item-t" data-step="3">ChatGPT ads</button></h3>
+            <h3><button type="button" class="item-t" data-step="4">ChatGPT ads</button></h3>
             <div class="item-b"><div class="item-in">
               <p>Be there when customers ask ChatGPT what to buy or who to hire. A new channel: ads appear below the answer, labelled as sponsored. Availability depends on your country, so I check it fits you first.</p>
               <a class="btn btn-light btn-sm" href="#contact" data-open-contact data-topic="ChatGPT ads">Grow my business</a>
@@ -109,20 +129,24 @@
           </li>
           </ul>
         </div>
-        <svg class="stack" viewBox="-12 -160 344 362" aria-hidden="true">
+        <svg class="stack" viewBox="-12 -210 344 412" aria-hidden="true">
           <g class="slab" style="--k:0">
             <path class="face" d="M0 80L160 160v28L0 108z"/><path class="face" d="M320 80L160 160v28l160-80z"/><path class="face" d="M160 0l160 80-160 80L0 80z"/>
             <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="10" y="12" width="80" height="76"/><path d="M10 28h80M18 20h4M27 20h4"/><path d="M20 42h38M20 52h26" stroke-width="5"/><rect x="20" y="64" width="26" height="12" class="fillb"/><rect x="62" y="40" width="20" height="36"/></g>
           </g>
           <g class="slab" style="--k:1">
             <path class="face" d="M0 80L160 160v28L0 108z"/><path class="face" d="M320 80L160 160v28l160-80z"/><path class="face" d="M160 0l160 80-160 80L0 80z"/>
-            <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="10" y="14" width="80" height="18" rx="9"/><circle cx="74" cy="23" r="4"/><path d="M77 26l5 5"/><rect x="10" y="42" width="80" height="20" class="fillb"/><path d="M10 74h62M10 84h44"/></g>
+            <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><path d="M22 34h56l4 52H18z"/><path d="M36 34v-8a14 14 0 0 1 28 0v8"/><rect x="34" y="52" width="32" height="18" class="fillb"/><path d="M42 78h16"/></g>
           </g>
           <g class="slab" style="--k:2">
             <path class="face" d="M0 80L160 160v28L0 108z"/><path class="face" d="M320 80L160 160v28l160-80z"/><path class="face" d="M160 0l160 80-160 80L0 80z"/>
-            <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="16" y="8" width="68" height="84"/><circle cx="27" cy="19" r="5"/><path d="M38 19h30"/><rect x="16" y="30" width="68" height="36" class="fillb"/><path d="M24 76h20M24 84h34"/><rect x="62" y="73" width="16" height="12"/></g>
+            <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="10" y="14" width="80" height="18" rx="9"/><circle cx="74" cy="23" r="4"/><path d="M77 26l5 5"/><rect x="10" y="42" width="80" height="20" class="fillb"/><path d="M10 74h62M10 84h44"/></g>
           </g>
           <g class="slab" style="--k:3">
+            <path class="face" d="M0 80L160 160v28L0 108z"/><path class="face" d="M320 80L160 160v28l160-80z"/><path class="face" d="M160 0l160 80-160 80L0 80z"/>
+            <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="16" y="8" width="68" height="84"/><circle cx="27" cy="19" r="5"/><path d="M38 19h30"/><rect x="16" y="30" width="68" height="36" class="fillb"/><path d="M24 76h20M24 84h34"/><rect x="62" y="73" width="16" height="12"/></g>
+          </g>
+          <g class="slab" style="--k:4">
             <path class="face" d="M0 80L160 160v28L0 108z"/><path class="face" d="M320 80L160 160v28l160-80z"/><path class="face" d="M160 0l160 80-160 80L0 80z"/>
             <g class="glyph" transform="matrix(1.6 .8 -1.6 .8 160 0)"><rect x="38" y="8" width="52" height="16" rx="8"/><rect x="10" y="32" width="64" height="26" rx="8"/><path d="M20 41h40M20 49h28"/><rect x="10" y="66" width="80" height="26" class="fillb"/><path d="M20 79h44" class="inv"/></g>
           </g>
@@ -189,7 +213,7 @@
           <p>Nobody honest can promise a number. What I do promise is a site and ads built around enquiries, tracking so you see every lead, and fixes when something is not working.</p>
         </details>
         <details class="dr" style="--i:4">
-          <summary>Do I need all four services?</summary>
+          <summary>Do I need every service?</summary>
           <p>No. Many businesses start with the website, or with one ad channel. We pick what fits your goal and your budget.</p>
         </details>
       </div>
