@@ -41,3 +41,23 @@ Any static host works. Point `deystudio.dev` at it:
 
 - Proof section (client results and testimonials) once real material exists.
 - Real WhatsApp number in `main.js`.
+
+## Articles (SEO)
+
+Write a file in `content/`, e.g. `content/my-topic.md`:
+
+```
+---
+title: Your keyword-rich title
+description: 150-160 char summary used in Google results
+date: 2026-11-12
+---
+Intro paragraph.
+
+## Heading
+Text, **bold**, [links](https://example.com), lists with "- ".
+```
+
+Run `node build.mjs`, then commit and push. It regenerates `articles/`, `sitemap.xml` and `robots.txt`.
+Optional frontmatter: `slug:` (URL name), `updated:` (date). Files starting with `_` are skipped.
+After first deploy, submit `https://deystudio.dev/sitemap.xml` in Google Search Console.

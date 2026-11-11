@@ -1,0 +1,35 @@
+.art-page{padding-top:48px;background:var(--ground);color:var(--ink)}
+.abar .brand{flex:1}
+.abar .cell:not(.brand){padding:0 18px;display:flex;align-items:center;font-size:.92rem}
+.awrap{max-width:760px;margin:0 auto;padding:clamp(40px,8vw,88px) var(--m) 64px}
+.crumbs{font-size:.9rem;margin-bottom:24px}
+.crumbs a{color:var(--blue);text-decoration:none}
+.art h1,.idx-h{font-family:var(--serif);font-weight:360;font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.02em;margin:0 0 16px}
+.meta{color:var(--ink-2);font-size:.92rem;margin:0 0 20px}
+.lede{font-size:1.2rem;line-height:1.5;color:var(--ink-2);margin:0 0 32px;padding-bottom:28px;border-bottom:1px solid rgba(11,79,214,.35)}
+.prose{font-size:1.08rem;line-height:1.7}
+.prose h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.2;margin:2.2em 0 .6em}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;margin:1.8em 0 .5em}
+.prose p,.prose ul,.prose ol{margin:0 0 1.2em}
+.prose li{margin-bottom:.4em}
+.prose a{color:var(--blue);text-underline-offset:3px}
+.prose img{max-width:100%;height:auto;border:1px solid rgba(11,79,214,.35)}
+.prose blockquote{margin:1.6em 0;padding:4px 0 4px 20px;border-left:3px solid var(--blue);font-family:var(--serif);font-size:1.25rem}
+.prose code{background:var(--tone);padding:2px 6px;font-size:.92em}
+.acta{margin-top:56px;padding:28px;border:1px solid rgba(11,79,214,.35);background:var(--tone)}
+.acta h2{font-family:var(--serif);font-weight:400;font-size:1.6rem;margin:0 0 8px}
+.acta p{margin:0 0 18px}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid rgba(11,79,214,.35)}
+.idx li{border-bottom:1px solid rgba(11,79,214,.35)}
+.idx a{display:block;padding:28px 0;color:inherit;text-decoration:none}
+.idx time{font-size:.88rem;color:var(--ink-2)}
+.idx h2{font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.2;margin:6px 0 8px}
+.idx p{margin:0 0 10px;color:var(--ink-2)}
+.idx span{color:var(--blue);font-size:.95rem}
+.idx a:hover h2{color:var(--blue)}
+.afoot{border-top:1px solid rgba(11,79,214,.35)}
+.afoot .awrap{display:flex;flex-wrap:wrap;gap:12px 28px;padding-top:28px;padding-bottom:28px;font-size:.92rem}
+.afoot a{color:var(--blue);text-decoration:none}
+.abar *{white-space:nowrap}
+.idx{border-top:0}
+@media (max-width:560px){.abar .cell:not(.brand):not([href="/articles/"]){display:none}.abar .bar-cta{padding:0 14px;font-size:.9rem}}
