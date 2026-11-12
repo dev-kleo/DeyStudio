@@ -1,5 +1,8 @@
 // Usage: node build.mjs  -> builds articles/*, tools/*, sitemap.xml, robots.txt from content/*.md and tools-src/*.html
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+// Content hash appended to CSS links so browsers and the CDN never serve a stale stylesheet.
+const ver = f => createHash('md5').update(readFileSync(f)).digest('hex').slice(0,8);
 const SITE = 'https://deystudio.dev';
 const MAIL = 'hello.deyabhishek@gmail.com';
 // Free tools. To add one: add an entry here and a body fragment at tools-src/<slug>.html
@@ -62,8 +65,8 @@ const head=(title,desc,path,extra='')=>`<!doctype html>
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/articles.css">
+<link rel="stylesheet" href="/styles.css?v=${ver('styles.css')}">
+<link rel="stylesheet" href="/articles.css?v=${ver('articles.css')}">
 ${extra}</head>
 <body class="art-page">
 <header class="bar abar">
@@ -139,4 +142,6 @@ ${toolList}
 const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+// Keep the home page's stylesheet link in step with styles.css
+{const h=readFileSync('index.html','utf8');const n=h.replace(/href="\/?styles\.css(\?v=[a-f0-9]+)?"/,`href="/styles.css?v=${ver('styles.css')}"`);if(n!==h)writeFileSync('index.html',n)}
 console.log(`built ${posts.length} article(s)`);
