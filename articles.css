@@ -86,10 +86,10 @@
 .art h1,.idx-h{font-family:var(--sans);font-weight:700;font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.06;letter-spacing:-.04em}
 .meta{color:var(--ink-3)}
 .lede{font-size:clamp(1.2rem,2.2vw,1.45rem);line-height:1.4;font-weight:500;letter-spacing:-.02em;border-bottom:1px solid var(--hair)}
-.prose{font-size:1.0625rem;line-height:1.65;color:#333336}
+.prose{font-size:1.0625rem;line-height:1.65;color:var(--ink-2)}
 .prose h2{font-family:var(--sans);font-weight:700;font-size:clamp(1.55rem,3.4vw,2rem);letter-spacing:-.03em;line-height:1.12;color:var(--ink)}
 .prose h3{font-family:var(--sans);font-weight:600;font-size:1.25rem;letter-spacing:-.02em;color:var(--ink)}
-.prose a,.toc a,.afoot a,.tl-dl a{color:#06c;text-decoration:none}
+.prose a,.toc a,.afoot a,.tl-dl a{color:var(--blue);text-decoration:none}
 .prose a:hover,.toc a:hover{text-decoration:underline}
 .prose img{border:0;border-radius:var(--r-m);box-shadow:var(--shadow)}
 .prose figcaption{color:var(--ink-3);text-align:center}
@@ -102,11 +102,11 @@
 .toc,.acta,.tl-card{border:0;border-radius:var(--r);background:var(--tone)}
 .toc{padding:24px 28px}
 .toc-t{font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
-.acta{padding:clamp(28px,5vw,44px);background:#000;color:#f5f5f7;position:relative;overflow:hidden}
-.acta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 85% 0,rgba(41,151,255,.3),transparent 65%);pointer-events:none}
+.acta{padding:clamp(28px,5vw,44px);background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
+.acta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 88% 0,rgba(89,170,248,.3),transparent 65%),radial-gradient(45% 90% at 0 100%,rgba(248,172,61,.14),transparent 70%);pointer-events:none}
 .acta > *{position:relative}
 .acta h2{font-family:var(--sans);font-weight:700;font-size:clamp(1.6rem,4vw,2.1rem);letter-spacing:-.035em;color:#fff}
-.acta p{color:#a1a1a6}
+.acta p{color:var(--on-night-2)}
 .idx{display:grid;gap:16px}
 .idx li{border:0}
 .idx a{padding:clamp(24px,4vw,36px);border-radius:var(--r);background:var(--tone);transition:transform .5s var(--spring),box-shadow .5s,background-color .3s}
@@ -114,13 +114,13 @@
 @media (hover:hover){.idx a:hover{transform:translateY(-4px) scale(1.01);background:#fff;box-shadow:var(--shadow)}}
 .idx h2{font-family:var(--sans);font-weight:700;font-size:clamp(1.4rem,3.4vw,1.8rem);letter-spacing:-.03em;line-height:1.12}
 .idx time{color:var(--ink-3)}
-.idx span{color:#06c}
+.idx span{color:var(--blue)}
 .afoot{border-top:1px solid var(--hair)}
 .tl-form{gap:10px}
 .tl-form input{border:1px solid var(--hair);border-radius:var(--r-s);background:var(--tone);transition:box-shadow .2s,border-color .2s,background-color .2s}
-.tl-form input:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.18)}
+.tl-form input:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(8,99,220,.18)}
 .tl-age{font-family:var(--sans);font-weight:700;letter-spacing:-.04em}
-.tl-tag{border:0;border-radius:980px;background:rgba(0,113,227,.1)}
+.tl-tag{border:0;border-radius:980px;background:rgba(8,99,220,.1)}
 .tl-dl{border-top:1px solid var(--hair)}
 @media (max-width:560px){.tl-form input{border-right:1px solid var(--hair)}.abar .bar-cta{height:32px;margin:0 8px 0 2px}}
 @media (prefers-reduced-motion:no-preference){
@@ -132,3 +132,5 @@
     @keyframes a-card{from{opacity:0;transform:translateY(36px) scale(.96)}}
   }
 }
+.prose blockquote{padding-left:20px;border-left:3px solid var(--amber)}
+.prose th{color:var(--ink)}
