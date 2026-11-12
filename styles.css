@@ -626,9 +626,33 @@ dialog[open] .k-mail{animation:k-mail 2.6s var(--ease) infinite}
 .sf :focus-visible{outline-color:var(--ground)}
 @media (max-width:980px){.sf-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){
-  .sf-grid{grid-template-columns:minmax(0,1fr);gap:28px}
-  .sf-cta{width:100%;justify-content:space-between}
-  .sf{padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .sf{padding-top:36px;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+  .sf-top{gap:20px;padding-bottom:24px}
+  .sf-logo{font-size:1.125rem}
+  .sf-brand p{margin-top:10px;font-size:.9375rem}
+  .sf-cta{width:100%;justify-content:space-between;min-height:50px;padding:0 20px}
+  .sf-grid{display:flex;flex-direction:column;gap:26px;padding:26px 0 28px}
+  .sf-svc{order:1}.sf-art{order:2}.sf-con{order:3}.sf-abt{order:4}
+  .sf-h{margin-bottom:12px;font-size:.6875rem}
+  .sf-col li{margin:0}
+  .sf-col a{font-size:.875rem;padding:0}
+  .sf-col a::after{display:none}
+  .sf-svc ul{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .sf-svc a{display:flex;align-items:center;min-height:52px;padding:8px 12px;border:1px solid rgba(245,245,242,.24);line-height:1.25}
+  .sf-svc li:nth-last-child(-n+2){grid-column:1/-1}
+  .sf-art li{border-top:1px solid rgba(245,245,242,.16)}
+  .sf-art li:last-child{border-bottom:1px solid rgba(245,245,242,.16)}
+  .sf-art a{display:block;width:100%;padding:11px 0;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .sf-art li:last-child a{color:#9DBBFF;font-weight:500}
+  .sf-con ul{display:grid;grid-template-columns:1fr;gap:8px}
+  .sf-con ul a{display:flex;align-items:center;min-height:48px;padding:0 12px;background:rgba(245,245,242,.1);overflow-wrap:anywhere;line-height:1.2}
+  .sf-con ul li:first-child{grid-column:1/-1}
+  .sf-addr{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;margin-top:16px;font-size:.8125rem}
+  .sf-addr span{margin:0 0 4px}
+  .sf-addr span:nth-of-type(2){grid-column:2;grid-row:1}
+  .sf-abt ul{display:flex;flex-wrap:wrap;gap:8px}
+  .sf-abt a{display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid rgba(245,245,242,.24);font-size:.8125rem}
+  .sf-bot{padding-top:18px;font-size:.8125rem}
 }
 .art-page .sf{padding-bottom:clamp(24px,3vw,40px)}
 @media (max-width:560px){.art-page .sf{padding-bottom:28px}}

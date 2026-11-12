@@ -37,7 +37,7 @@
 .afoot a{color:var(--blue);text-decoration:none}
 .abar *{white-space:nowrap}
 .idx{border-top:0}
-@media (max-width:560px){.abar .cell:not(.brand):not([href="/articles/"]){display:none}.abar .bar-cta{padding:0 14px;font-size:.9rem}}
+@media (max-width:560px){.abar .cell:not(.brand):not([href="/articles/"]){display:none}.abar .cell:not(.brand){padding:0 10px;font-size:.85rem}.abar .brand{min-width:0}.abar .bar-cta{padding:0 12px;font-size:.82rem}}
 
 /* ---------- Tools pages ---------- */
 .abar .cell.tdd:not(.brand){padding:0}

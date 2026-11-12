@@ -180,22 +180,22 @@ const siteFooterEl = (home=false) => {
       <a class="sf-cta" href="mailto:${MAIL}?subject=Grow%20my%20business">Grow my business</a>
     </div>
     <nav class="sf-grid" aria-label="Footer">
-      <div class="sf-col"><p class="sf-h">Services</p><ul>
+      <div class="sf-col sf-svc"><p class="sf-h">Services</p><ul>
         ${SERVICES.map(x=>li('/'+x.slug+'/',x.short)).join('\n        ')}
         ${li('/web-development-company-kolkata/','Web development in Kolkata')}
       </ul></div>
-      <div class="sf-col"><p class="sf-h">Articles</p><ul>
+      <div class="sf-col sf-art"><p class="sf-h">Articles</p><ul>
         ${latest.map(x=>li('/articles/'+x.slug+'/',esc(x.title))).join('\n        ')}
         ${li('/articles/','All articles &rarr;')}
       </ul></div>
-      <div class="sf-col"><p class="sf-h">About</p><ul>
+      <div class="sf-col sf-abt"><p class="sf-h">About</p><ul>
         ${li('/#about','About Dey Studio')}
         ${li('/#process','How we work')}
         ${li('/#faq','Questions')}
         ${li('/tools/','Free tools')}
         ${li('https://github.com/dev-kleo','GitHub',true)}
       </ul></div>
-      <div class="sf-col"><p class="sf-h">Contact</p>
+      <div class="sf-col sf-con"><p class="sf-h">Contact</p>
         <ul>
           ${li('mailto:'+MAIL,MAIL)}
           ${li(wa,'WhatsApp',true)}
