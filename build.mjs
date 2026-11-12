@@ -59,7 +59,8 @@ function md(src){
     if(/^\d+\. /.test(l)){const it=[];while(i<lines.length&&/^\d+\. /.test(lines[i]))it.push(`<li>${inline(lines[i++].replace(/^\d+\. /,''))}</li>`);out.push(`<ol>${it.join('')}</ol>`);continue}
     if(l.startsWith('> ')){const q=[];while(i<lines.length&&lines[i].startsWith('> '))q.push(lines[i++].slice(2));out.push(`<blockquote><p>${inline(q.join(' '))}</p></blockquote>`);continue}
     const p=[];while(i<lines.length&&lines[i].trim()&&!/^(#{2,3} |[-*] |\d+\. |> |\|)/.test(lines[i]))p.push(lines[i++]);
-    out.push(`<p>${inline(p.join(' '))}</p>`);
+    const one=p.join(' ').trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    out.push(one?`<figure><img src="${esc(one[2])}" alt="${esc(one[1])}" loading="lazy"><figcaption>${esc(one[1])}</figcaption></figure>`:`<p>${inline(p.join(' '))}</p>`);
   }
   return out.join('\n');
 }
@@ -73,6 +74,7 @@ function parse(file){
   const body=m[2].trim();
   meta.minutes=Math.max(1,Math.round(body.split(/\s+/).length/220));
   meta.body=body;
+  meta.toc=[...body.matchAll(/^## (.+)$/gm)].map(m=>[slugify(m[1]),m[1]]);
   meta.html=md(body);
   return meta;
 }
@@ -133,6 +135,7 @@ for(const p of posts){
 <h1>${esc(p.title)}</h1>
 <p class="meta"><time datetime="${p.date}">${fmt(p.date)}</time>${p.updated&&p.updated!==p.date?` · Updated <time datetime="${p.updated}">${fmt(p.updated)}</time>`:''} · ${p.minutes} min read</p>
 <p class="lede">${esc(p.description)}</p>
+${p.toc.length>=4?`<nav class="toc" aria-label="On this page"><p class="toc-t">On this page</p><ol>${p.toc.map(([id,t])=>`<li><a href="#${id}">${inline(t)}</a></li>`).join('')}</ol></nav>`:''}
 <div class="prose">
 ${p.html}
 </div>
