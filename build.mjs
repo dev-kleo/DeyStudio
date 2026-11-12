@@ -1,7 +1,15 @@
-// Usage: node build.mjs  -> builds articles/*, sitemap.xml, robots.txt from content/*.md
+// Usage: node build.mjs  -> builds articles/*, tools/*, sitemap.xml, robots.txt from content/*.md and tools-src/*.html
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 const SITE = 'https://deystudio.dev';
 const MAIL = 'hello.deyabhishek@gmail.com';
+// Free tools. To add one: add an entry here and a body fragment at tools-src/<slug>.html
+const TOOLS = [
+  {slug:'website-age-checker',name:'Website age checker',blurb:'See how old any domain is, when it expires and who registered it.',
+   title:'Website Age Checker: How Old Is Any Domain?',
+   description:'Free website age checker. Enter any domain to see its exact age, registration date, expiry date, registrar and first appearance on the Wayback Machine.',
+   date:'2026-11-12'}
+];
+const toolsNav = `<div class="cell tdd"><a class="tdd-t" href="/tools/">Tools<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="tdd-m">${TOOLS.map(t=>`<a href="/tools/${t.slug}/"><b>${t.name}</b><small>${t.blurb}</small></a>`).join('')}<a class="tdd-all" href="/tools/"><b>All tools &rarr;</b></a></div></div>`;
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const inline = s => esc(s)
   .replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1" loading="lazy">')
@@ -65,10 +73,11 @@ ${extra}</head>
   </a>
   <a class="cell" href="/#services">Services</a>
   <a class="cell" href="/articles/">Articles</a>
+  ${toolsNav}
   <a class="bar-cta" href="mailto:${MAIL}">Grow my business</a>
 </header>
 `;
-const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
+const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
 </body>
 </html>
 `;
@@ -106,7 +115,28 @@ writeFileSync('articles/index.html',head('Articles: websites, ads and getting cu
 ${posts.length?`<ul class="idx">\n${list}\n</ul>`:'<p>First articles coming soon.</p>'}
 </main>
 `+foot);
-const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date])];
+// Tools: /tools/ index and one page per tool (body fragment from tools-src/<slug>.html)
+mkdirSync('tools',{recursive:true});
+for(const t of TOOLS){
+  const path=`/tools/${t.slug}/`;
+  const ld={"@context":"https://schema.org","@type":"WebApplication",name:t.name,url:SITE+path,description:t.description,applicationCategory:"UtilitiesApplication",operatingSystem:"Any",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},creator:{"@type":"Organization",name:"Dey Studio",url:SITE}};
+  const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Tools",item:SITE+"/tools/"},{"@type":"ListItem",position:3,name:t.name,item:SITE+path}]};
+  const extra=`<script type="application/ld+json">${JSON.stringify(ld)}</script>\n<script type="application/ld+json">${JSON.stringify(bc)}</script>\n`;
+  mkdirSync(`tools/${t.slug}`,{recursive:true});
+  writeFileSync(`tools/${t.slug}/index.html`,head(`${t.title} | Dey Studio`,t.description,path,extra)
+   +`<main class="awrap art tool" id="main">\n<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>\n${readFileSync(`tools-src/${t.slug}.html`,'utf8')}\n</main>\n`+foot);
+}
+const toolList=TOOLS.map(t=>`<li><a href="/tools/${t.slug}/"><h2>${esc(t.name)}</h2><p>${esc(t.blurb)}</p><span>Open tool &rarr;</span></a></li>`).join('\n');
+writeFileSync('tools/index.html',head('Free tools for small business websites | Dey Studio','Free tools from Dey Studio: check how old a website is and more. No sign-up needed.','/tools/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Tools",url:SITE+"/tools/"})}</script>\n`)
+ +`<main class="awrap" id="main">
+<h1 class="idx-h">Tools</h1>
+<p class="lede">Free tools for business owners. No sign-up needed.</p>
+<ul class="idx">
+${toolList}
+</ul>
+</main>
+`+foot);
+const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log(`built ${posts.length} article(s)`);

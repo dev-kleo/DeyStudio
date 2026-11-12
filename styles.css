@@ -560,3 +560,25 @@ dialog[open] .k-mail{animation:k-mail 2.6s var(--ease) infinite}
   .si *,.fi *,.duo *,.opt svg *{animation:none!important}
   .mv{display:none}
 }
+
+/* ---------- Tools dropdown (header) ---------- */
+.tdd{position:relative;padding:0}
+.tdd-t{display:flex;align-items:center;gap:10px;height:100%;padding:0 clamp(14px,1.6vw,24px);color:inherit;text-decoration:none;font-size:.9375rem}
+.tdd-t svg{transition:transform .3s var(--ease)}
+.tdd-m{position:absolute;top:100%;left:-1px;min-width:300px;background:var(--blue);color:var(--ground);border:1px solid rgba(245,245,242,.4);border-top:0;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .3s var(--ease),visibility 0s .3s}
+.tdd:focus-within .tdd-m{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.tdd:focus-within .tdd-t{background:var(--blue);color:var(--ground)}
+.tdd:focus-within .tdd-t svg{transform:rotate(180deg)}
+.tdd-m a{display:block;padding:20px 22px;color:inherit;text-decoration:none;border-bottom:1px solid rgba(245,245,242,.4)}
+.tdd-m b{display:block;font-size:1.1rem;font-weight:400;letter-spacing:-.01em;line-height:1.25}
+.tdd-m small{display:block;margin-top:6px;font-size:.88rem;line-height:1.4;opacity:.85}
+.tdd-m .tdd-all{background:var(--blue-deep);border-bottom:0;padding:16px 22px}
+@media (hover:hover){
+  .tdd:hover{background:var(--blue)}
+  .tdd:hover .tdd-t{color:var(--ground)}
+  .tdd:hover .tdd-t svg{transform:rotate(180deg)}
+  .tdd:hover .tdd-m{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  .tdd-m a:hover{background:rgba(245,245,242,.1)}
+  .tdd-m .tdd-all:hover{background:var(--ink)}
+}
+@media (prefers-reduced-motion:reduce){.tdd-m{transition:none}.tdd-t svg{transition:none}}
