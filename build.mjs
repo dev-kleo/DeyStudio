@@ -141,7 +141,7 @@ const head=(title,desc,path,extra='',img='')=>`<!doctype html>
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${SITE}${path}">
-<meta name="theme-color" content="#fbfdff">
+<meta name="theme-color" content="#faf9f5">
 <meta property="og:site_name" content="Dey Studio">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">

@@ -103,7 +103,7 @@
 .toc{padding:24px 28px}
 .toc-t{font-size:.8125rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)}
 .acta{padding:clamp(28px,5vw,44px);background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
-.acta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 88% 0,rgba(89,170,248,.3),transparent 65%),radial-gradient(45% 90% at 0 100%,rgba(248,172,61,.14),transparent 70%);pointer-events:none}
+.acta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 88% 0,rgba(217,119,87,.3),transparent 65%),radial-gradient(45% 90% at 0 100%,rgba(106,155,204,.14),transparent 70%);pointer-events:none}
 .acta > *{position:relative}
 .acta h2{font-family:var(--sans);font-weight:700;font-size:clamp(1.6rem,4vw,2.1rem);letter-spacing:-.035em;color:#fff}
 .acta p{color:var(--on-night-2)}
@@ -118,9 +118,9 @@
 .afoot{border-top:1px solid var(--hair)}
 .tl-form{gap:10px}
 .tl-form input{border:1px solid var(--hair);border-radius:var(--r-s);background:var(--tone);transition:box-shadow .2s,border-color .2s,background-color .2s}
-.tl-form input:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(8,99,220,.18)}
+.tl-form input:focus{background:#fff;border-color:var(--blue);box-shadow:0 0 0 4px rgba(198,97,63,.18)}
 .tl-age{font-family:var(--sans);font-weight:700;letter-spacing:-.04em}
-.tl-tag{border:0;border-radius:980px;background:rgba(8,99,220,.1)}
+.tl-tag{border:0;border-radius:980px;background:rgba(198,97,63,.1)}
 .tl-dl{border-top:1px solid var(--hair)}
 @media (max-width:560px){.tl-form input{border-right:1px solid var(--hair)}.abar .bar-cta{height:32px;margin:0 8px 0 2px}}
 @media (prefers-reduced-motion:no-preference){
@@ -134,3 +134,8 @@
 }
 .prose blockquote{padding-left:20px;border-left:3px solid var(--amber)}
 .prose th{color:var(--ink)}
+
+/* warm palette: serif headlines on inner pages */
+.art h1,.idx-h,.prose h2,.acta h2,.idx h2,.tl-age{font-family:var(--serif);font-weight:500;letter-spacing:-.022em}
+.acta h2{color:var(--on-night)}
+.tl-tag{background:rgba(217,119,87,.14)}
