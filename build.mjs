@@ -106,7 +106,7 @@ ${extra}</head>
   <a class="bar-cta" href="mailto:${MAIL}">Grow my business</a>
 </header>
 `;
-const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><span>Moscow: Tverskaya Street, Building 15, 125009</span><span>Kolkata: 17 SN Paul Road, 700057</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="/articles/web-development-company-kolkata/">Web development in Kolkata</a><a href="https://wa.me/79507453399?text=Hi%20Dey%20Studio%2C%20I%27d%20like%20to%20grow%20my%20business." target="_blank" rel="noopener">WhatsApp</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
+const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><span>Moscow: Tverskaya Street, Building 15, 125009</span><span>Kolkata: 17 SN Paul Road, 700057</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="/web-development-company-kolkata/">Web development in Kolkata</a><a href="https://wa.me/79507453399?text=Hi%20Dey%20Studio%2C%20I%27d%20like%20to%20grow%20my%20business." target="_blank" rel="noopener">WhatsApp</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
 </body>
 </html>
 `;
@@ -137,9 +137,9 @@ ${p.html}
   writeFileSync(`articles${path.slice(9)}index.html`,html);
 }
 // Local service pages. Body fragment at pages-src/<slug>.html; <!--FAQ--> is replaced by the FAQ list, {{MAIL}} by MAIL.
-const KOL_ID = SITE + '/articles/web-development-company-kolkata/#localbusiness';
+const KOL_ID = SITE + '/web-development-company-kolkata/#localbusiness';
 const KOL_ADDR = {"@type":"PostalAddress",streetAddress:"17 SN Paul Road",addressLocality:"Kolkata",addressRegion:"West Bengal",postalCode:"700057",addressCountry:"IN"};
-const PAGES = [{slug:'web-development-company-kolkata',name:'Web development company in Kolkata',
+const PAGES = [{slug:'web-development-company-kolkata',url:'/web-development-company-kolkata/',name:'Web development company in Kolkata',
   title:'Web Development Company in Kolkata | Dey Studio',
   description:'Dey Studio builds fast business websites, online shops and web apps for Kolkata businesses. Prices in rupees, fixed quotes and support after launch.',
   date:'2026-11-12',
@@ -155,7 +155,7 @@ const PAGES = [{slug:'web-development-company-kolkata',name:'Web development com
    ['Which platforms do you build on?','We use WordPress and WooCommerce, Shopify, fast static sites and custom JavaScript apps. We recommend the simplest option that fits your budget and your plans for growth.'],
    ['How do I get started?','Message us on WhatsApp or email and describe your business and what you want the website to do. We reply with a fixed quote and a delivery date.']
   ]}];
-const list=[...posts,...PAGES].sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<li><a href="/articles/${p.slug}/"><time datetime="${p.date}">${fmt(p.date)}</time><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p><span>Read article &rarr;</span></a></li>`).join('\n');
+const list=[...posts,...PAGES].sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<li><a href="${p.url||`/articles/${p.slug}/`}"><time datetime="${p.date}">${fmt(p.date)}</time><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p><span>Read article &rarr;</span></a></li>`).join('\n');
 writeFileSync('articles/index.html',head('Articles: websites, ads and getting customers | Dey Studio','Plain-language guides on websites, online shops and ads (Google, Facebook, ChatGPT) for small business owners who want more customers.','/articles/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Articles",url:SITE+"/articles/"})}</script>\n`)
  +`<main class="awrap" id="main">
 <h1 class="idx-h">Articles</h1>
@@ -187,22 +187,22 @@ ${toolList}
 </main>
 `+foot);
 for(const pg of PAGES){
-  const path=`/articles/${pg.slug}/`;
+  const path=`/${pg.slug}/`;
   const svc={"@context":"https://schema.org","@graph":[
     {"@type":"ProfessionalService","@id":KOL_ID,name:"Dey Studio Kolkata",url:SITE+path,image:SITE+"/logo.png",description:pg.description,email:MAIL,priceRange:"₹₹",address:KOL_ADDR,areaServed:[{"@type":"City",name:"Kolkata"},{"@type":"State",name:"West Bengal"}],parentOrganization:ORG_REF,knowsAbout:["Web development","Website design","Ecommerce websites","Landing pages","Google Ads"]},
     {"@type":"Service",name:"Web development in Kolkata",serviceType:"Web development",provider:{"@id":KOL_ID},areaServed:{"@type":"City",name:"Kolkata"},url:SITE+path,description:pg.description,offers:[
       {"@type":"Offer",name:"Landing page",priceSpecification:{"@type":"PriceSpecification",priceCurrency:"INR",minPrice:8000,maxPrice:20000}},
       {"@type":"Offer",name:"Business website",priceSpecification:{"@type":"PriceSpecification",priceCurrency:"INR",minPrice:20000,maxPrice:60000}},
       {"@type":"Offer",name:"Online shop",priceSpecification:{"@type":"PriceSpecification",priceCurrency:"INR",minPrice:50000,maxPrice:150000}}]}]};
-  const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Articles",item:SITE+"/articles/"},{"@type":"ListItem",position:3,name:pg.name,item:SITE+path}]};
+  const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:pg.name,item:SITE+path}]};
   const faq={"@context":"https://schema.org","@type":"FAQPage",mainEntity:pg.faq.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))};
   const faqHtml=`<h2>Frequently asked questions</h2>\n`+pg.faq.map(([q,a])=>`<h3>${esc(q)}</h3>\n<p>${esc(a)}</p>`).join('\n');
   const extra=[svc,bc,faq].map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
-  mkdirSync(`articles/${pg.slug}`,{recursive:true});
-  writeFileSync(`articles/${pg.slug}/index.html`,head(pg.title,pg.description,path,extra)
+  mkdirSync(`${pg.slug}`,{recursive:true});
+  writeFileSync(`${pg.slug}/index.html`,head(pg.title,pg.description,path,extra)
    +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${pg.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+foot);
 }
-const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/articles/${p.slug}/`,p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
+const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers
