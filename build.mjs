@@ -169,7 +169,7 @@ ${toolList}
 `+foot);
 const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
-writeFileSync('robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers
 {const h=readFileSync('index.html','utf8');const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
 // Keep the home page's stylesheet link in step with styles.css
