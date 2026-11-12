@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Domain Age Checker: Check Website Age | Dey Studio</title>
+<meta name="description" content="Free domain age checker. Check domain age, registration date, expiry date, registrar and first Wayback snapshot for any website. No sign-up.">
+<link rel="canonical" href="https://deystudio.dev/tools/free-domain-age-checker/">
+<meta name="theme-color" content="#F5F5F2">
+<meta property="og:site_name" content="Dey Studio">
+<meta property="og:title" content="Free Domain Age Checker: Check Website Age | Dey Studio">
+<meta property="og:description" content="Free domain age checker. Check domain age, registration date, expiry date, registrar and first Wayback snapshot for any website. No sign-up.">
+<meta property="og:url" content="https://deystudio.dev/tools/free-domain-age-checker/">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://deystudio.dev/og/free-domain-age-checker.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://deystudio.dev/og/free-domain-age-checker.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css?v=3d9e892e">
+<link rel="stylesheet" href="/articles.css?v=361df3eb">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Free domain age checker","alternateName":["Website Age Checker","Domain Age Checker","Check Domain Age"],"url":"https://deystudio.dev/tools/free-domain-age-checker/","description":"Free domain age checker. Check domain age, registration date, expiry date, registrar and first Wayback snapshot for any website. No sign-up.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"Dey Studio","url":"https://deystudio.dev"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://deystudio.dev/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://deystudio.dev/tools/"},{"@type":"ListItem","position":3,"name":"Free domain age checker","item":"https://deystudio.dev/tools/free-domain-age-checker/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this domain age checker really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free to use, with no sign-up and no email address needed."}},{"@type":"Question","name":"How do I check the age of a domain?","acceptedAnswer":{"@type":"Answer","text":"Type the domain into the box and press Check age. You get the age, registration date, expiry date, registrar and the first date the site was archived."}},{"@type":"Question","name":"How old is a website?","acceptedAnswer":{"@type":"Answer","text":"The registration date shows how old the domain is. The first archived date shows when the site first had content that the Internet Archive saved. Together they give a good estimate of how old the website is."}},{"@type":"Question","name":"Does WHOIS privacy hide the domain creation date?","acceptedAnswer":{"@type":"Answer","text":"No. Privacy services hide the owner's contact details, not the registration date, so the age can still be checked."}},{"@type":"Question","name":"Why is the registration date missing for some domains?","acceptedAnswer":{"@type":"Answer","text":"Some country-code registries do not publish creation dates through RDAP. In that case we show the earliest Wayback Machine snapshot, which gives a minimum age."}},{"@type":"Question","name":"Why is the first archived date later than the registration date?","acceptedAnswer":{"@type":"Answer","text":"A domain is often registered long before a site is built on it, and the Wayback Machine only saves pages it has crawled. The first archived date is therefore a later, approximate date."}},{"@type":"Question","name":"Is a new domain a sign of a scam?","acceptedAnswer":{"@type":"Answer","text":"Not on its own. Many scam sites use recently registered domains, but so do plenty of honest new businesses. Check the age together with reviews, contact details and the payment method."}},{"@type":"Question","name":"Which domains can I check?","acceptedAnswer":{"@type":"Answer","text":"Most domain extensions, including .com, .net, .org, .io and many country domains. If you enter a subdomain, we check the main domain it belongs to."}}]}</script>
+</head>
+<body class="art-page">
+<header class="bar abar">
+  <a class="brand cell" href="/" aria-label="Dey Studio home">
+    <svg class="mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle class="dot" cx="25.5" cy="6.5" r="3"/></svg>
+    <span>Dey Studio</span>
+  </a>
+  <a class="cell" href="/#services">Services</a>
+  <a class="cell" href="/articles/">Articles</a>
+  <div class="cell tdd"><a class="tdd-t" href="/tools/">Tools<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="tdd-m"><a href="/tools/free-domain-age-checker/"><b>Free domain age checker</b><small>Check how old any domain or website is, when it expires and who registered it.</small></a><a class="tdd-all" href="/tools/"><b>All tools &rarr;</b></a></div></div>
+  <a class="bar-cta" href="mailto:hello.deyabhishek@gmail.com">Grow my business</a>
+</header>
+<main class="awrap art tool" id="main">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>
+<h1>Free domain age checker</h1>
+<p class="lede">Check domain age in seconds. Enter any domain or website to see its exact age, registration date, expiry date, registrar and first Wayback Machine snapshot. Free, with no sign-up.</p>
+
+<form id="tl-form" class="tl-form" novalidate>
+  <label class="tl-sr" for="tl-domain">Domain name</label>
+  <input id="tl-domain" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="example.com">
+  <button id="tl-go" class="btn" type="submit">Check age</button>
+</form>
+<p id="tl-error" class="tl-err" role="alert" hidden></p>
+<div id="tl-result" aria-live="polite"></div>
+
+<div class="prose">
+<h2>What is a domain age checker?</h2>
+<p>A domain age checker tells you how long ago a domain name was first registered. It works as a website age checker too: type in any site and you can see how old its domain is, when the registration runs out and which registrar holds it. Our tool reads the public registration record through RDAP, the modern replacement for the old WHOIS lookup, and adds the date the Internet Archive first saved the site.</p>
+
+<h2>How to check domain age</h2>
+<ol>
+<li>Type or paste the domain, for example <code>example.com</code>. A full web address works too, and we strip the rest.</li>
+<li>Press <strong>Check age</strong>.</li>
+<li>Read the age, registration date, expiry date and registrar in the result card.</li>
+<li>Compare the registration date with the first archived date to see roughly when the site went live.</li>
+</ol>
+
+<h2>What the results mean</h2>
+<ul>
+<li><strong>Registered:</strong> the domain creation date, the day the domain was first registered. Domain age is counted from here.</li>
+<li><strong>Expires:</strong> the domain registration date runs out then. Domains that are not renewed can be lost.</li>
+<li><strong>Last updated:</strong> when the registration record last changed, for example after a renewal or a change of name servers.</li>
+<li><strong>Registrar:</strong> the company the domain is registered through.</li>
+<li><strong>First archived:</strong> the earliest snapshot of the site in the Wayback Machine, a useful clue to domain history.</li>
+<li><strong>Status and nameservers:</strong> transfer locks and the servers the domain points to.</li>
+</ul>
+
+<h2>Domain age vs website age</h2>
+<p>These are not always the same. A domain can be registered years before a website is built on it, or it can expire and be picked up by a new owner. To work out how old a website really is, look at both the registration date and the first archived date. If the archive shows content long after the registration date, the site is younger than its domain.</p>
+
+<h2>Why check a website's age?</h2>
+<ul>
+<li><strong>Buying an aged domain:</strong> confirm the age and look at the history before you pay a premium for it.</li>
+<li><strong>Vetting a supplier, shop or competitor:</strong> a business that has been online for a decade is a different proposition from one that appeared last month.</li>
+<li><strong>Spotting suspicious sites:</strong> many scam sites use recently registered domains. A brand-new domain is a reason to be careful, not proof of fraud.</li>
+<li><strong>SEO audits:</strong> know the history of a domain before a redesign or a migration.</li>
+<li><strong>Protecting your own domain:</strong> check the expiry date so you never lose it by accident.</li>
+</ul>
+
+<h2>Does domain age affect SEO?</h2>
+<p>Google has said that age alone is not a ranking factor. Older domains often do better because they have had more time to collect links, content and trust, not because of the date itself. A new site with useful pages and good links can outrank an old, neglected one. If your own site is old and slow, read <a href="/articles/why-your-website-gets-no-customers/">why a business website gets visitors but no customers</a> to see what to fix first.</p>
+
+<h2>Frequently asked questions</h2>
+<h3>Is this domain age checker really free?</h3>
+<p>Yes. It is free to use, with no sign-up and no email address needed.</p>
+<h3>How do I check the age of a domain?</h3>
+<p>Type the domain into the box and press Check age. You get the age, registration date, expiry date, registrar and the first date the site was archived.</p>
+<h3>How old is a website?</h3>
+<p>The registration date shows how old the domain is. The first archived date shows when the site first had content that the Internet Archive saved. Together they give a good estimate of how old the website is.</p>
+<h3>Does WHOIS privacy hide the domain creation date?</h3>
+<p>No. Privacy services hide the owner's contact details, not the registration date, so the age can still be checked.</p>
+<h3>Why is the registration date missing for some domains?</h3>
+<p>Some country-code registries do not publish creation dates through RDAP. In that case we show the earliest Wayback Machine snapshot, which gives a minimum age.</p>
+<h3>Why is the first archived date later than the registration date?</h3>
+<p>A domain is often registered long before a site is built on it, and the Wayback Machine only saves pages it has crawled. The first archived date is therefore a later, approximate date.</p>
+<h3>Is a new domain a sign of a scam?</h3>
+<p>Not on its own. Many scam sites use recently registered domains, but so do plenty of honest new businesses. Check the age together with reviews, contact details and the payment method.</p>
+<h3>Which domains can I check?</h3>
+<p>Most domain extensions, including .com, .net, .org, .io and many country domains. If you enter a subdomain, we check the main domain it belongs to.</p>
+</div>
+
+<aside class="acta"><h2>Is your website holding your business back?</h2><p>An old, slow or outdated site costs you customers every day. Tell us what you sell and we will show you what to fix first.</p><a class="btn" href="mailto:hello.deyabhishek@gmail.com?subject=Grow%20my%20business">Grow my business</a></aside>
+
+<script>
+(function () {
+  'use strict';
+
+  var form = document.getElementById('tl-form');
+  var input = document.getElementById('tl-domain');
+  var btn = document.getElementById('tl-go');
+  var errBox = document.getElementById('tl-error');
+  var out = document.getElementById('tl-result');
+
+  function normalize(raw) {
+    var s = String(raw || '').trim().toLowerCase();
+    if (!s) return null;
+    if (!/^[a-z][a-z0-9+.\-]*:\/\//.test(s)) s = 'http://' + s;
+    var host;
+    try { host = new URL(s).hostname; } catch (e) { return null; }
+    host = host.replace(/\.$/, '').replace(/^www\./, '');
+    if (!/^(?:[a-z0-9](?:[a-z0-9\-]{0,61}[a-z0-9])?\.)+[a-z0-9\-]{2,63}$/.test(host)) return null;
+    if (/\.\d+$/.test(host)) return null;
+    return host;
+  }
+
+  function isPublicSuffix(s) {
+    return /^(?:co|com|org|net|gov|edu|ac|or|ne)\.[a-z]{2}$/.test(s);
+  }
+
+  // No custom request headers: they break the cross-site RDAP redirect.
+  function getJSON(url, ms) {
+    var c = new AbortController();
+    var t = setTimeout(function () { c.abort(); }, ms || 15000);
+    return fetch(url, { signal: c.signal })
+      .then(function (r) {
+        if (!r.ok) { var e = new Error('HTTP ' + r.status); e.status = r.status; throw e; }
+        return r.json();
+      })
+      .finally(function () { clearTimeout(t); });
+  }
+
+  // Try the full host, then strip leading labels (subdomains) until RDAP answers.
+  function lookupRdap(host) {
+    var labels = host.split('.');
+    var i = 0;
+    function next() {
+      if (i > labels.length - 2) return Promise.resolve(null);
+      var cand = labels.slice(i).join('.');
+      if (i > 0 && isPublicSuffix(cand)) return Promise.resolve(null);
+      i++;
+      return getJSON('https://rdap.org/domain/' + encodeURIComponent(cand))
+        .then(function (data) { return { domain: cand, data: data }; })
+        .catch(function (e) { if (e.status === 404) return next(); throw e; });
+    }
+    return next();
+  }
+
+  // The availability API allows cross-site requests (the CDX API does not).
+  // Asking for the snapshot closest to 1990 returns the earliest one.
+  function firstSnapshot(host) {
+    var url = 'https://archive.org/wayback/available?url=' + encodeURIComponent(host) + '&timestamp=19900101';
+    return getJSON(url, 20000).then(function (d) {
+      var c = d && d.archived_snapshots && d.archived_snapshots.closest;
+      if (!c || !c.available || !c.timestamp) return null;
+      var t = String(c.timestamp);
+      return { ts: t, date: new Date(Date.UTC(+t.slice(0, 4), +t.slice(4, 6) - 1, +t.slice(6, 8))) };
+    });
+  }
+
+  function eventDate(data, action) {
+    var list = data.events || [];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].eventAction === action) {
+        var d = new Date(list[i].eventDate);
+        if (!isNaN(d.getTime())) return d;
+      }
+    }
+    return null;
+  }
+
+  function registrarName(data) {
+    var ents = data.entities || [];
+    for (var i = 0; i < ents.length; i++) {
+      var e = ents[i];
+      if ((e.roles || []).indexOf('registrar') === -1) continue;
+      var items = (e.vcardArray && e.vcardArray[1]) || [];
+      for (var j = 0; j < items.length; j++) {
+        if (items[j][0] === 'fn' && items[j][3]) return String(items[j][3]);
+      }
+    }
+    return null;
+  }
+
+  function diffYMD(from, to) {
+    var y = to.getUTCFullYear() - from.getUTCFullYear();
+    var m = to.getUTCMonth() - from.getUTCMonth();
+    var d = to.getUTCDate() - from.getUTCDate();
+    if (d < 0) { m--; d += new Date(Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), 0)).getUTCDate(); }
+    if (m < 0) { y--; m += 12; }
+    return { y: y, m: m, d: d };
+  }
+
+  function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
+
+  function ageText(from, now) {
+    var p = diffYMD(from, now), parts = [];
+    if (p.y) parts.push(plural(p.y, 'year'));
+    if (p.m) parts.push(plural(p.m, 'month'));
+    if (!p.y && !p.m) parts.push(plural(p.d, 'day'));
+    return parts.join(', ');
+  }
+
+  function fmt(d) {
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+  }
+
+  function verdict(from, now) {
+    var years = (now - from) / (365.25 * 864e5);
+    if (years < 1) return 'New domain';
+    if (years < 3) return 'Young domain';
+    if (years < 10) return 'Established domain';
+    return 'Veteran domain';
+  }
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function addRow(dl, label, value, link) {
+    if (value == null || value === '') return;
+    dl.appendChild(el('dt', null, label));
+    var dd = el('dd');
+    if (link) {
+      var a = el('a', null, value);
+      a.href = link; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      dd.appendChild(a);
+    } else {
+      dd.textContent = value;
+    }
+    dl.appendChild(dd);
+  }
+
+  function render(host, rdap, snap) {
+    var now = new Date();
+    out.textContent = '';
+    var data = rdap ? rdap.data : null;
+    var reg = data ? eventDate(data, 'registration') : null;
+    var base = reg || (snap ? snap.date : null);
+
+    var card = el('div', 'tl-card');
+    if (!base) {
+      card.appendChild(el('div', 'tl-age', 'No data found'));
+      card.appendChild(el('div', 'tl-sub', 'We could not find a registration record or archived snapshot for ' + host + '. Check the spelling, or the domain may be unregistered or very new.'));
+      out.appendChild(card);
+      return;
+    }
+
+    card.appendChild(el('div', 'tl-age', (reg ? '' : 'At least ') + ageText(base, now)));
+    card.appendChild(el('div', 'tl-sub', (rdap ? rdap.domain : host) + (reg ? ' was registered on ' : ' first appeared on the Internet Archive on ') + fmt(base)));
+    card.appendChild(el('span', 'tl-tag', verdict(base, now)));
+
+    var dl = el('dl', 'tl-dl');
+    var exp = data ? eventDate(data, 'expiration') : null;
+    var upd = data ? eventDate(data, 'last changed') : null;
+    addRow(dl, 'Registered', reg ? fmt(reg) : null);
+    if (exp) {
+      var days = Math.ceil((exp - now) / 864e5);
+      addRow(dl, 'Expires', fmt(exp) + (days >= 0 ? ' (in ' + plural(days, 'day') + ')' : ' (expired)'));
+    }
+    addRow(dl, 'Last updated', upd ? fmt(upd) : null);
+    addRow(dl, 'Registrar', data ? registrarName(data) : null);
+    if (snap) {
+      addRow(dl, 'First archived', fmt(snap.date), 'https://web.archive.org/web/' + snap.ts + '/http://' + host + '/');
+    }
+    if (data && Array.isArray(data.status) && data.status.length) addRow(dl, 'Status', data.status.join(', '));
+    if (data && Array.isArray(data.nameservers) && data.nameservers.length) {
+      addRow(dl, 'Nameservers', data.nameservers.map(function (n) { return String(n.ldhName || '').toLowerCase(); }).filter(Boolean).join(', '));
+    }
+    card.appendChild(dl);
+
+    var note = !reg
+      ? 'This registry does not publish a creation date through RDAP, so the age shown is the earliest Internet Archive snapshot. The real age may be higher.'
+      : 'Domain age is counted from the registration date. A site may have launched later, or the domain may have changed owners.';
+    card.appendChild(el('div', 'tl-note', note));
+    out.appendChild(card);
+  }
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.hidden = !msg;
+  }
+
+  function run(raw) {
+    showError('');
+    out.textContent = '';
+    var host = normalize(raw);
+    if (!host) { showError('Enter a valid domain, for example example.com'); return; }
+    input.value = host;
+    try { history.replaceState(null, '', '?d=' + encodeURIComponent(host)); } catch (e) { /* ignore */ }
+
+    btn.disabled = true;
+    btn.textContent = 'Checking...';
+    Promise.allSettled([lookupRdap(host), firstSnapshot(host)]).then(function (res) {
+      var rdap = res[0].status === 'fulfilled' ? res[0].value : null;
+      var snap = res[1].status === 'fulfilled' ? res[1].value : null;
+      if (res[0].status === 'rejected' && res[1].status === 'rejected') {
+        showError('Lookup failed. Check your connection and try again.');
+        return;
+      }
+      render(host, rdap, snap);
+    }).finally(function () {
+      btn.disabled = false;
+      btn.textContent = 'Check age';
+    });
+  }
+
+  form.addEventListener('submit', function (e) { e.preventDefault(); run(input.value); });
+
+  var preset = new URLSearchParams(location.search).get('d');
+  if (preset) { input.value = preset; run(preset); }
+})();
+</script>
+
+</main>
+<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="mailto:hello.deyabhishek@gmail.com">hello.deyabhishek@gmail.com</a></div></footer>
+</body>
+</html>

@@ -7,10 +7,21 @@ const SITE = 'https://deystudio.dev';
 const MAIL = 'hello.deyabhishek@gmail.com';
 // Free tools. To add one: add an entry here and a body fragment at tools-src/<slug>.html
 const TOOLS = [
-  {slug:'website-age-checker',name:'Website age checker',blurb:'See how old any domain is, when it expires and who registered it.',
-   title:'Website Age Checker: How Old Is Any Domain?',
-   description:'Free website age checker. Enter any domain to see its exact age, registration date, expiry date, registrar and first appearance on the Wayback Machine.',
-   date:'2026-11-12'}
+  {slug:'free-domain-age-checker',name:'Free domain age checker',blurb:'Check how old any domain or website is, when it expires and who registered it.',
+   title:'Free Domain Age Checker: Check Website Age',
+   description:'Free domain age checker. Check domain age, registration date, expiry date, registrar and first Wayback snapshot for any website. No sign-up.',
+   date:'2026-11-12',img:'/og/free-domain-age-checker.png',
+   alt:['Website Age Checker','Domain Age Checker','Check Domain Age'],
+   faq:[
+    ['Is this domain age checker really free?','Yes. It is free to use, with no sign-up and no email address needed.'],
+    ['How do I check the age of a domain?','Type the domain into the box and press Check age. You get the age, registration date, expiry date, registrar and the first date the site was archived.'],
+    ['How old is a website?','The registration date shows how old the domain is. The first archived date shows when the site first had content that the Internet Archive saved. Together they give a good estimate of how old the website is.'],
+    ['Does WHOIS privacy hide the domain creation date?','No. Privacy services hide the owner\'s contact details, not the registration date, so the age can still be checked.'],
+    ['Why is the registration date missing for some domains?','Some country-code registries do not publish creation dates through RDAP. In that case we show the earliest Wayback Machine snapshot, which gives a minimum age.'],
+    ['Why is the first archived date later than the registration date?','A domain is often registered long before a site is built on it, and the Wayback Machine only saves pages it has crawled. The first archived date is therefore a later, approximate date.'],
+    ['Is a new domain a sign of a scam?','Not on its own. Many scam sites use recently registered domains, but so do plenty of honest new businesses. Check the age together with reviews, contact details and the payment method.'],
+    ['Which domains can I check?','Most domain extensions, including .com, .net, .org, .io and many country domains. If you enter a subdomain, we check the main domain it belongs to.']
+   ]}
 ];
 const toolsNav = `<div class="cell tdd"><a class="tdd-t" href="/tools/">Tools<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="tdd-m">${TOOLS.map(t=>`<a href="/tools/${t.slug}/"><b>${t.name}</b><small>${t.blurb}</small></a>`).join('')}<a class="tdd-all" href="/tools/"><b>All tools &rarr;</b></a></div></div>`;
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -49,7 +60,7 @@ function parse(file){
   return meta;
 }
 const fmt=d=>new Date(d+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
-const head=(title,desc,path,extra='')=>`<!doctype html>
+const head=(title,desc,path,extra='',img='')=>`<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -62,7 +73,7 @@ const head=(title,desc,path,extra='')=>`<!doctype html>
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${SITE}${path}">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="${img?'summary_large_image':'summary'}">${img?`\n<meta property="og:image" content="${SITE}${img}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:image" content="${SITE}${img}">`:''}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css?v=${ver('styles.css')}">
@@ -122,15 +133,17 @@ ${posts.length?`<ul class="idx">\n${list}\n</ul>`:'<p>First articles coming soon
 mkdirSync('tools',{recursive:true});
 for(const t of TOOLS){
   const path=`/tools/${t.slug}/`;
-  const ld={"@context":"https://schema.org","@type":"WebApplication",name:t.name,url:SITE+path,description:t.description,applicationCategory:"UtilitiesApplication",operatingSystem:"Any",offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},creator:{"@type":"Organization",name:"Dey Studio",url:SITE}};
+  const ld={"@context":"https://schema.org","@type":"WebApplication",name:t.name,alternateName:t.alt,url:SITE+path,description:t.description,applicationCategory:"UtilitiesApplication",operatingSystem:"Any",isAccessibleForFree:true,offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},creator:{"@type":"Organization",name:"Dey Studio",url:SITE}};
   const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Tools",item:SITE+"/tools/"},{"@type":"ListItem",position:3,name:t.name,item:SITE+path}]};
-  const extra=`<script type="application/ld+json">${JSON.stringify(ld)}</script>\n<script type="application/ld+json">${JSON.stringify(bc)}</script>\n`;
+  const faq=t.faq?{"@context":"https://schema.org","@type":"FAQPage",mainEntity:t.faq.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))}:null;
+  const faqHtml=t.faq?`<h2>Frequently asked questions</h2>\n`+t.faq.map(([q,a])=>`<h3>${esc(q)}</h3>\n<p>${esc(a)}</p>`).join('\n'):'';
+  const extra=[ld,bc,faq].filter(Boolean).map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
   mkdirSync(`tools/${t.slug}`,{recursive:true});
-  writeFileSync(`tools/${t.slug}/index.html`,head(`${t.title} | Dey Studio`,t.description,path,extra)
-   +`<main class="awrap art tool" id="main">\n<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>\n${readFileSync(`tools-src/${t.slug}.html`,'utf8')}\n</main>\n`+foot);
+  writeFileSync(`tools/${t.slug}/index.html`,head(`${t.title} | Dey Studio`,t.description,path,extra,t.img)
+   +`<main class="awrap art tool" id="main">\n<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>\n${readFileSync(`tools-src/${t.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml)}\n</main>\n`+foot);
 }
 const toolList=TOOLS.map(t=>`<li><a href="/tools/${t.slug}/"><h2>${esc(t.name)}</h2><p>${esc(t.blurb)}</p><span>Open tool &rarr;</span></a></li>`).join('\n');
-writeFileSync('tools/index.html',head('Free tools for small business websites | Dey Studio','Free tools from Dey Studio: check how old a website is and more. No sign-up needed.','/tools/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Tools",url:SITE+"/tools/"})}</script>\n`)
+writeFileSync('tools/index.html',head('Free tools for small business websites | Dey Studio','Free tools from Dey Studio, including a free domain age checker. No sign-up needed.','/tools/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Tools",url:SITE+"/tools/"})}</script>\n`,TOOLS[0].img)
  +`<main class="awrap" id="main">
 <h1 class="idx-h">Tools</h1>
 <p class="lede">Free tools for business owners. No sign-up needed.</p>

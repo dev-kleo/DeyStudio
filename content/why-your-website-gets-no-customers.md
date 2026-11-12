@@ -15,7 +15,7 @@ Every page needs one main action: call, message or book. Hiding it in a footer o
 
 ## 3. The site is slow on a phone
 
-Most visitors arrive on a phone. Large uncompressed images and heavy scripts make pages slow, and slow pages lose people before they read a word. Test your site on mobile data, not office wifi.
+Most visitors arrive on a phone. Large uncompressed images and heavy scripts make pages slow, and slow pages lose people before they read a word. Test your site on mobile data, not office wifi. If you are not sure how old your site is, our [free domain age checker](/tools/free-domain-age-checker/) shows when the domain was registered.
 
 ## 4. You rely on word of mouth only
 

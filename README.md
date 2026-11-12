@@ -61,3 +61,7 @@ Text, **bold**, [links](https://example.com), lists with "- ".
 Run `node build.mjs`, then commit and push. It regenerates `articles/`, `sitemap.xml` and `robots.txt`.
 Optional frontmatter: `slug:` (URL name), `updated:` (date). Files starting with `_` are skipped.
 After first deploy, submit `https://deystudio.dev/sitemap.xml` in Google Search Console.
+
+## Tools
+
+Free tools live at `/tools/`. Each tool is an entry in the `TOOLS` list in `build.mjs` (title, description, FAQ, social image) plus a body fragment at `tools-src/<slug>.html`. Run `node build.mjs` to rebuild the pages, `/tools/` index and `sitemap.xml`. The FAQ list also produces the FAQ structured data. Social images are 1200x630 PNGs in `og/`. `_redirects` holds old URLs that redirect to current ones.

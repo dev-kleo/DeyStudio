@@ -1,39 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Website Age Checker: How Old Is Any Domain? | Dey Studio</title>
-<meta name="description" content="Free website age checker. Enter any domain to see its exact age, registration date, expiry date, registrar and first appearance on the Wayback Machine.">
-<link rel="canonical" href="https://deystudio.dev/tools/website-age-checker/">
-<meta name="theme-color" content="#F5F5F2">
-<meta property="og:site_name" content="Dey Studio">
-<meta property="og:title" content="Website Age Checker: How Old Is Any Domain? | Dey Studio">
-<meta property="og:description" content="Free website age checker. Enter any domain to see its exact age, registration date, expiry date, registrar and first appearance on the Wayback Machine.">
-<meta property="og:url" content="https://deystudio.dev/tools/website-age-checker/">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=3d9e892e">
-<link rel="stylesheet" href="/articles.css?v=361df3eb">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Website age checker","url":"https://deystudio.dev/tools/website-age-checker/","description":"Free website age checker. Enter any domain to see its exact age, registration date, expiry date, registrar and first appearance on the Wayback Machine.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"creator":{"@type":"Organization","name":"Dey Studio","url":"https://deystudio.dev"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://deystudio.dev/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://deystudio.dev/tools/"},{"@type":"ListItem","position":3,"name":"Website age checker","item":"https://deystudio.dev/tools/website-age-checker/"}]}</script>
-</head>
-<body class="art-page">
-<header class="bar abar">
-  <a class="brand cell" href="/" aria-label="Dey Studio home">
-    <svg class="mark" viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle class="dot" cx="25.5" cy="6.5" r="3"/></svg>
-    <span>Dey Studio</span>
-  </a>
-  <a class="cell" href="/#services">Services</a>
-  <a class="cell" href="/articles/">Articles</a>
-  <div class="cell tdd"><a class="tdd-t" href="/tools/">Tools<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="tdd-m"><a href="/tools/website-age-checker/"><b>Website age checker</b><small>See how old any domain is, when it expires and who registered it.</small></a><a class="tdd-all" href="/tools/"><b>All tools &rarr;</b></a></div></div>
-  <a class="bar-cta" href="mailto:hello.deyabhishek@gmail.com">Grow my business</a>
-</header>
-<main class="awrap art tool" id="main">
-<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>
-<h1>Website age checker</h1>
-<p class="lede">Enter any domain to see how old it is, when it expires, who registered it and when it first appeared on the Internet Archive.</p>
+<h1>Free domain age checker</h1>
+<p class="lede">Check domain age in seconds. Enter any domain or website to see its exact age, registration date, expiry date, registrar and first Wayback Machine snapshot. Free, with no sign-up.</p>
 
 <form id="tl-form" class="tl-form" novalidate>
   <label class="tl-sr" for="tl-domain">Domain name</label>
@@ -44,14 +10,43 @@
 <div id="tl-result" aria-live="polite"></div>
 
 <div class="prose">
-<h2>How it works</h2>
-<p>We look up the domain's public registration record (RDAP) for its creation date, and the Internet Archive's Wayback Machine for its earliest saved snapshot. Domain age is counted from the registration date.</p>
-<h3>Is domain age the same as website age?</h3>
-<p>Not always. A domain can be registered long before a site goes live, or expire and be registered again by a new owner. The first Wayback snapshot shows when real content first appeared.</p>
-<h3>Does domain age affect SEO?</h3>
-<p>Age alone is not a ranking factor you can rely on. Older domains tend to have more links and history, but content quality, links and technical health matter far more.</p>
-<h3>Why is there no registration date for my domain?</h3>
-<p>Some country-code registries do not publish creation dates through RDAP. In that case we show the earliest Wayback snapshot instead, which gives a minimum age.</p>
+<h2>What is a domain age checker?</h2>
+<p>A domain age checker tells you how long ago a domain name was first registered. It works as a website age checker too: type in any site and you can see how old its domain is, when the registration runs out and which registrar holds it. Our tool reads the public registration record through RDAP, the modern replacement for the old WHOIS lookup, and adds the date the Internet Archive first saved the site.</p>
+
+<h2>How to check domain age</h2>
+<ol>
+<li>Type or paste the domain, for example <code>example.com</code>. A full web address works too, and we strip the rest.</li>
+<li>Press <strong>Check age</strong>.</li>
+<li>Read the age, registration date, expiry date and registrar in the result card.</li>
+<li>Compare the registration date with the first archived date to see roughly when the site went live.</li>
+</ol>
+
+<h2>What the results mean</h2>
+<ul>
+<li><strong>Registered:</strong> the domain creation date, the day the domain was first registered. Domain age is counted from here.</li>
+<li><strong>Expires:</strong> the domain registration date runs out then. Domains that are not renewed can be lost.</li>
+<li><strong>Last updated:</strong> when the registration record last changed, for example after a renewal or a change of name servers.</li>
+<li><strong>Registrar:</strong> the company the domain is registered through.</li>
+<li><strong>First archived:</strong> the earliest snapshot of the site in the Wayback Machine, a useful clue to domain history.</li>
+<li><strong>Status and nameservers:</strong> transfer locks and the servers the domain points to.</li>
+</ul>
+
+<h2>Domain age vs website age</h2>
+<p>These are not always the same. A domain can be registered years before a website is built on it, or it can expire and be picked up by a new owner. To work out how old a website really is, look at both the registration date and the first archived date. If the archive shows content long after the registration date, the site is younger than its domain.</p>
+
+<h2>Why check a website's age?</h2>
+<ul>
+<li><strong>Buying an aged domain:</strong> confirm the age and look at the history before you pay a premium for it.</li>
+<li><strong>Vetting a supplier, shop or competitor:</strong> a business that has been online for a decade is a different proposition from one that appeared last month.</li>
+<li><strong>Spotting suspicious sites:</strong> many scam sites use recently registered domains. A brand-new domain is a reason to be careful, not proof of fraud.</li>
+<li><strong>SEO audits:</strong> know the history of a domain before a redesign or a migration.</li>
+<li><strong>Protecting your own domain:</strong> check the expiry date so you never lose it by accident.</li>
+</ul>
+
+<h2>Does domain age affect SEO?</h2>
+<p>Google has said that age alone is not a ranking factor. Older domains often do better because they have had more time to collect links, content and trust, not because of the date itself. A new site with useful pages and good links can outrank an old, neglected one. If your own site is old and slow, read <a href="/articles/why-your-website-gets-no-customers/">why a business website gets visitors but no customers</a> to see what to fix first.</p>
+
+<!--FAQ-->
 </div>
 
 <aside class="acta"><h2>Is your website holding your business back?</h2><p>An old, slow or outdated site costs you customers every day. Tell us what you sell and we will show you what to fix first.</p><a class="btn" href="mailto:hello.deyabhishek@gmail.com?subject=Grow%20my%20business">Grow my business</a></aside>
@@ -278,8 +273,3 @@
   if (preset) { input.value = preset; run(preset); }
 })();
 </script>
-
-</main>
-<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="mailto:hello.deyabhishek@gmail.com">hello.deyabhishek@gmail.com</a></div></footer>
-</body>
-</html>
