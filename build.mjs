@@ -14,8 +14,8 @@ const ORG = {"@type":"Organization","@id":ORG_ID,name:"Dey Studio",url:SITE+"/",
   logo:{"@type":"ImageObject",url:SITE+"/logo.png",width:512,height:512},
   description:"Dey Studio designs and builds websites and online shops and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.",
   email:MAIL,
-  contactPoint:[{"@type":"ContactPoint",contactType:"customer support",email:MAIL,availableLanguage:"English"},{"@type":"ContactPoint",contactType:"customer support",telephone:"+79507453399",areaServed:"RU",availableLanguage:"English"},{"@type":"ContactPoint",contactType:"customer support",telephone:"+918910315877",areaServed:"IN",availableLanguage:"English"}],
-  location:[{"@type":"Place",name:"Dey Studio Moscow",telephone:"+79507453399",address:{"@type":"PostalAddress",streetAddress:"Tverskaya Street, Building 15",addressLocality:"Moscow",postalCode:"125009",addressCountry:"RU"}},{"@type":"Place",name:"Dey Studio Kolkata",telephone:"+918910315877",address:{"@type":"PostalAddress",streetAddress:"17 SN Paul Road",addressLocality:"Kolkata",addressRegion:"West Bengal",postalCode:"700057",addressCountry:"IN"}}],
+  contactPoint:{"@type":"ContactPoint",contactType:"customer support",email:MAIL,availableLanguage:"English"},
+  location:[{"@type":"Place",name:"Dey Studio Moscow",address:{"@type":"PostalAddress",streetAddress:"Tverskaya Street, Building 15",addressLocality:"Moscow",postalCode:"125009",addressCountry:"RU"}},{"@type":"Place",name:"Dey Studio Kolkata",address:{"@type":"PostalAddress",streetAddress:"17 SN Paul Road",addressLocality:"Kolkata",addressRegion:"West Bengal",postalCode:"700057",addressCountry:"IN"}}],
   knowsAbout:["Website design","Website development","Ecommerce websites","Google Ads","Facebook ads","ChatGPT ads"],
   ...(SAME_AS.length?{sameAs:SAME_AS}:{})};
 const WEBSITE = {"@type":"WebSite","@id":SITE+"/#website",url:SITE+"/",name:"Dey Studio",inLanguage:"en",publisher:{"@id":ORG_ID}};
@@ -106,7 +106,7 @@ ${extra}</head>
   <a class="bar-cta" href="mailto:${MAIL}">Grow my business</a>
 </header>
 `;
-const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><span>Moscow: Tverskaya Street, Building 15, 125009 <a href="tel:+79507453399">+7 950 745 33 99</a></span><span>Kolkata: 17 SN Paul Road, 700057 <a href="tel:+918910315877">+91 89103 15877</a></span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
+const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><span>Moscow: Tverskaya Street, Building 15, 125009</span><span>Kolkata: 17 SN Paul Road, 700057</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="https://wa.me/79507453399?text=Hi%20Dey%20Studio%2C%20I%27d%20like%20to%20grow%20my%20business." target="_blank" rel="noopener">WhatsApp</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
 </body>
 </html>
 `;

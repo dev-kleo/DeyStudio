@@ -40,7 +40,6 @@ Any static host works. Point `deystudio.dev` at it:
 ## Still to add
 
 - Proof section (client results and testimonials) once real material exists.
-- Real WhatsApp number in `main.js`.
 
 ## Articles (SEO)
 
