@@ -584,8 +584,11 @@ dialog[open] .k-mail{animation:k-mail 2.6s var(--ease) infinite}
 @media (prefers-reduced-motion:reduce){.tdd-m{transition:none}.tdd-t svg{transition:none}}
 
 /* ---------- Office locations (footer) ---------- */
-.foot-loc{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 28px;margin-top:clamp(24px,3vw,40px);font-size:.9375rem}
+.foot-loc{display:flex;flex-wrap:wrap;align-items:flex-start;gap:6px 28px;margin-top:clamp(24px,3vw,40px);font-size:.9375rem}
 .foot-loc-l{opacity:.7}
 .foot-loc ul{display:flex;flex-wrap:wrap;gap:4px 28px;margin:0;padding:0;list-style:none}
 .foot-loc+.foot-row{margin-top:clamp(14px,2vw,24px)}
 @media (max-width:860px){.foot-loc{font-size:1rem}.foot-loc+.foot-row{margin-top:20px}}
+.foot-loc li{display:flex;flex-direction:column;gap:2px}
+.foot-loc a{color:inherit;text-decoration:none;opacity:.85}
+@media (hover:hover){.foot-loc a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}}
