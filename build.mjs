@@ -5,6 +5,20 @@ import { createHash } from 'node:crypto';
 const ver = f => createHash('md5').update(readFileSync(f)).digest('hex').slice(0,8);
 const SITE = 'https://deystudio.dev';
 const MAIL = 'hello.deyabhishek@gmail.com';
+// Organization entity (home page graph; referenced by Article/WebApplication on other pages).
+// Add the studio's real profile URLs (LinkedIn company page, X, etc.) to SAME_AS when they exist.
+const SAME_AS = [];
+const ORG_ID = SITE + '/#organization';
+const ORG_REF = {"@type":"Organization","@id":ORG_ID,name:"Dey Studio",url:SITE+"/"};
+const ORG = {"@type":"Organization","@id":ORG_ID,name:"Dey Studio",url:SITE+"/",
+  logo:{"@type":"ImageObject",url:SITE+"/logo.png",width:512,height:512},
+  description:"Dey Studio designs and builds websites and online shops and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.",
+  email:MAIL,
+  contactPoint:{"@type":"ContactPoint",contactType:"customer support",email:MAIL,availableLanguage:"English"},
+  knowsAbout:["Website design","Website development","Ecommerce websites","Google Ads","Facebook ads","ChatGPT ads"],
+  ...(SAME_AS.length?{sameAs:SAME_AS}:{})};
+const WEBSITE = {"@type":"WebSite","@id":SITE+"/#website",url:SITE+"/",name:"Dey Studio",inLanguage:"en",publisher:{"@id":ORG_ID}};
+
 // Free tools. To add one: add an entry here and a body fragment at tools-src/<slug>.html
 const TOOLS = [
   {slug:'free-domain-age-checker',name:'Free domain age checker',blurb:'Check how old any domain or website is, when it expires and who registered it.',
@@ -101,7 +115,7 @@ rmSync('articles',{recursive:true,force:true});
 mkdirSync('articles',{recursive:true});
 for(const p of posts){
   const path=`/articles/${p.slug}/`;
-  const ld={"@context":"https://schema.org","@type":"Article",headline:p.title,description:p.description,datePublished:p.date,dateModified:p.updated||p.date,mainEntityOfPage:SITE+path,author:{"@type":"Organization",name:"Dey Studio",url:SITE},publisher:{"@type":"Organization",name:"Dey Studio",url:SITE}};
+  const ld={"@context":"https://schema.org","@type":"Article",headline:p.title,description:p.description,datePublished:p.date,dateModified:p.updated||p.date,mainEntityOfPage:SITE+path,author:ORG_REF,publisher:ORG_REF};
   const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Articles",item:SITE+"/articles/"},{"@type":"ListItem",position:3,name:p.title,item:SITE+path}]};
   const extra=`<script type="application/ld+json">${JSON.stringify(ld)}</script>\n<script type="application/ld+json">${JSON.stringify(bc)}</script>\n`;
   const html=head(`${p.title} | Dey Studio`,p.description,path,extra).replace('<meta name="twitter:card"',`<meta property="og:type" content="article">\n<meta property="article:published_time" content="${p.date}">\n<meta name="twitter:card"`)
@@ -133,7 +147,7 @@ ${posts.length?`<ul class="idx">\n${list}\n</ul>`:'<p>First articles coming soon
 mkdirSync('tools',{recursive:true});
 for(const t of TOOLS){
   const path=`/tools/${t.slug}/`;
-  const ld={"@context":"https://schema.org","@type":"WebApplication",name:t.name,alternateName:t.alt,url:SITE+path,description:t.description,applicationCategory:"UtilitiesApplication",operatingSystem:"Any",isAccessibleForFree:true,offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},creator:{"@type":"Organization",name:"Dey Studio",url:SITE}};
+  const ld={"@context":"https://schema.org","@type":"WebApplication",name:t.name,alternateName:t.alt,url:SITE+path,description:t.description,applicationCategory:"UtilitiesApplication",operatingSystem:"Any",isAccessibleForFree:true,offers:{"@type":"Offer",price:"0",priceCurrency:"USD"},creator:ORG_REF,publisher:ORG_REF};
   const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Tools",item:SITE+"/tools/"},{"@type":"ListItem",position:3,name:t.name,item:SITE+path}]};
   const faq=t.faq?{"@context":"https://schema.org","@type":"FAQPage",mainEntity:t.faq.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))}:null;
   const faqHtml=t.faq?`<h2>Frequently asked questions</h2>\n`+t.faq.map(([q,a])=>`<h3>${esc(q)}</h3>\n<p>${esc(a)}</p>`).join('\n'):'';
@@ -155,6 +169,8 @@ ${toolList}
 const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+// Home page: Organization + WebSite graph between the <!--ld--> markers
+{const h=readFileSync('index.html','utf8');const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
 // Keep the home page's stylesheet link in step with styles.css
 {const h=readFileSync('index.html','utf8');const n=h.replace(/href="\/?styles\.css(\?v=[a-f0-9]+)?"/,`href="/styles.css?v=${ver('styles.css')}"`);if(n!==h)writeFileSync('index.html',n)}
 console.log(`built ${posts.length} article(s)`);
