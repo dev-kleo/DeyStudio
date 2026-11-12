@@ -480,3 +480,83 @@ h1,h2,.giant,.ticker-track span{font-weight:360}
   .m-acc .item-t::before{margin:0;align-self:center}
   .m-cta{background:var(--ink);box-shadow:0 10px 30px rgba(14,17,22,.3)}
 }
+
+/* ---------- Animated icons ---------- */
+.bar-cta{margin-left:auto}
+.si,.fi,.opt svg{flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:square;overflow:visible}
+.si{width:30px;height:30px}
+.k-d{fill:currentColor;stroke:none;transform-box:fill-box}
+.item-t{display:flex;align-items:center;gap:16px}
+
+/* service icons move only while their row is the open one */
+:is(.scene-live .item.on,.m-acc .item.open) .k-draw,.fact.in .k-draw{stroke-dasharray:1;stroke-linecap:butt;animation:k-draw 3s var(--ease) infinite both}
+:is(.scene-live .item.on,.m-acc .item.open) .k-draw2{animation-delay:.35s}
+:is(.scene-live .item.on,.m-acc .item.open) .k-blink{animation:k-blink 1s steps(1) infinite}
+:is(.scene-live .item.on,.m-acc .item.open) .k-bob{animation:k-bob 2.4s ease-in-out infinite}
+:is(.scene-live .item.on,.m-acc .item.open) .k-orb{animation:k-orb 3.6s ease-in-out infinite}
+:is(.scene-live .item.on,.m-acc .item.open,.duo.in) .k-w1{animation:k-wave 1.6s ease-in-out infinite}
+:is(.scene-live .item.on,.m-acc .item.open) .k-w2{animation:k-wave 1.6s .3s ease-in-out infinite}
+:is(.scene-live .item.on,.m-acc .item.open,dialog[open]) .k-d{animation:k-dot 1.3s ease-in-out infinite}
+:is(.scene-live .item.on,.m-acc .item.open,dialog[open]) .k-d2{animation-delay:.15s}
+:is(.scene-live .item.on,.m-acc .item.open,dialog[open]) .k-d3{animation-delay:.3s}
+@keyframes k-draw{0%,6%{stroke-dashoffset:1}40%,100%{stroke-dashoffset:0}}
+@keyframes k-blink{50%{opacity:0}}
+@keyframes k-bob{50%{transform:translateY(-2px)}}
+@keyframes k-orb{0%,100%{transform:none}25%{transform:translate(3px,-1px)}50%{transform:translate(4px,3px)}75%{transform:translate(0,3px)}}
+@keyframes k-wave{0%,100%{opacity:.2}50%{opacity:1}}
+@keyframes k-dot{0%,60%,100%{transform:none}30%{transform:translateY(-3px)}}
+
+/* about: website and ads feed the same goal */
+.duo{display:block;width:100%;max-width:400px;margin-top:clamp(28px,4vw,56px);overflow:visible;fill:none;stroke:var(--blue);stroke-width:1.4}
+.duo .ln{stroke-dasharray:1.5 4.5;opacity:.7}
+.duo .nd rect{fill:var(--ground)}
+.duo .nd-end rect{fill:var(--blue)}
+.duo .nd-end path{stroke:var(--ground)}
+.duo .nd-end{transform-box:fill-box;transform-origin:center}
+.duo.in .nd-end{animation:duo-pop 1s ease-in-out infinite}
+.duo text{fill:var(--ink-2);stroke:none;font:11px Inter,system-ui,sans-serif;text-anchor:middle}
+.mv{fill:var(--blue);stroke:none;offset-rotate:0deg;opacity:0}
+.p1{offset-path:path("M70 36C190 36 180 85 290 85")}
+.p2{offset-path:path("M70 134C190 134 180 85 290 85")}
+.duo.in .mv{animation:duo-run 3s linear infinite}
+.duo.in .m2{animation-delay:1s}.duo.in .m3{animation-delay:2s}
+.duo.in .m4{animation-delay:.5s}.duo.in .m5{animation-delay:1.5s}.duo.in .m6{animation-delay:2.5s}
+@keyframes duo-run{0%{offset-distance:0%;opacity:0}12%,88%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@keyframes duo-pop{0%,60%,100%{transform:none}80%{transform:scale(1.05)}}
+
+/* about: three facts */
+.facts{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:clamp(56px,7vw,112px);border-top:1px solid var(--blue)}
+.fact{padding:clamp(24px,2.6vw,36px) clamp(16px,2.4vw,40px) 0 0}
+.fact + .fact{padding-left:clamp(16px,2.4vw,40px);border-left:1px dashed rgba(11,79,214,.35)}
+.fi{display:block;width:52px;height:52px;color:var(--blue);margin-bottom:clamp(20px,2.4vw,32px)}
+.fact h3{font-size:clamp(1.25rem,1.9vw,1.6rem);line-height:1.2}
+.fact p{margin-top:10px;max-width:30ch;font-size:.95rem;line-height:1.5;color:var(--ink-2)}
+.fact.in .k-key{transform-origin:15px 24px;animation:k-key 3.4s var(--ease) infinite}
+.k-bar{transform-box:fill-box;transform-origin:bottom}
+.k-bar3{fill:var(--blue)}
+.fact.in .k-bar{animation:k-bar 3.2s var(--ease) infinite}
+.fact.in .k-bar2{animation-delay:.15s}.fact.in .k-bar3{animation-delay:.3s}
+@keyframes k-key{0%,62%,100%{transform:none}74%{transform:rotate(-20deg)}86%{transform:rotate(8deg)}}
+@keyframes k-bar{0%,8%{transform:scaleY(.2)}40%,100%{transform:none}}
+
+/* contact dialog icons */
+.opt{position:relative;padding-right:76px}
+.opt svg{position:absolute;right:24px;top:50%;width:30px;height:30px;translate:0 -50%}
+dialog[open] .k-mail{animation:k-mail 2.6s var(--ease) infinite}
+@keyframes k-mail{0%,60%,100%{transform:none}78%{transform:translate(3px,-3px)}}
+
+@media (max-width:860px){
+  .m-acc .item-t::before{display:none}
+  .m-acc .item-t .si{width:26px;height:26px}
+  .duo{max-width:340px}
+  .facts{grid-template-columns:minmax(0,1fr);margin-top:48px}
+  .fact,.fact + .fact{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;padding:22px 0;border-left:0}
+  .fact + .fact{border-top:1px dashed rgba(11,79,214,.35)}
+  .fact:last-child{padding-bottom:0}
+  .fi{width:40px;height:40px;margin:2px 0 0}
+  .fact p{max-width:none;font-size:1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .si *,.fi *,.duo *,.opt svg *{animation:none!important}
+  .mv{display:none}
+}

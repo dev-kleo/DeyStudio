@@ -411,6 +411,8 @@
   var dlg = document.getElementById('contact-dialog');
   var mail = document.getElementById('opt-mail');
   var wa = document.getElementById('opt-wa');
+  var line = document.querySelector('[data-contact-line]');
+  if (line && CONTACT.whatsapp) line.textContent = 'Send a message or chat on WhatsApp. We read and answer every enquiry personally.';
 
   function message(topic) {
     return "Hi, I'd like to grow my business" + (topic ? " and I'm interested in " + topic : '') + '.\n\nA bit about my business: ';
