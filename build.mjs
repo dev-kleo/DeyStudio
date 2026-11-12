@@ -54,10 +54,11 @@ function md(src){
     if(!l.trim()){i++;continue}
     let m;
     if((m=l.match(/^(#{2,3}) (.+)/))){const n=m[1].length;out.push(`<h${n} id="${slugify(m[2])}">${inline(m[2])}</h${n}>`);i++;continue}
+    if(l.startsWith('|')&&/^\|[\s:|-]+\|$/.test((lines[i+1]||'').trim())){const row=r=>r.trim().replace(/^\||\|$/g,'').split('|').map(c=>c.trim());const h=row(l);i+=2;const body=[];while(i<lines.length&&lines[i].startsWith('|'))body.push(row(lines[i++]));out.push(`<div class="tbl"><table><thead><tr>${h.map(c=>`<th>${inline(c)}</th>`).join('')}</tr></thead><tbody>${body.map(r=>`<tr>${r.map(c=>`<td>${inline(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);continue}
     if(/^[-*] /.test(l)){const it=[];while(i<lines.length&&/^[-*] /.test(lines[i]))it.push(`<li>${inline(lines[i++].slice(2))}</li>`);out.push(`<ul>${it.join('')}</ul>`);continue}
     if(/^\d+\. /.test(l)){const it=[];while(i<lines.length&&/^\d+\. /.test(lines[i]))it.push(`<li>${inline(lines[i++].replace(/^\d+\. /,''))}</li>`);out.push(`<ol>${it.join('')}</ol>`);continue}
     if(l.startsWith('> ')){const q=[];while(i<lines.length&&lines[i].startsWith('> '))q.push(lines[i++].slice(2));out.push(`<blockquote><p>${inline(q.join(' '))}</p></blockquote>`);continue}
-    const p=[];while(i<lines.length&&lines[i].trim()&&!/^(#{2,3} |[-*] |\d+\. |> )/.test(lines[i]))p.push(lines[i++]);
+    const p=[];while(i<lines.length&&lines[i].trim()&&!/^(#{2,3} |[-*] |\d+\. |> |\|)/.test(lines[i]))p.push(lines[i++]);
     out.push(`<p>${inline(p.join(' '))}</p>`);
   }
   return out.join('\n');
@@ -71,6 +72,7 @@ function parse(file){
   meta.slug=meta.slug||file.replace(/\.md$/,'');
   const body=m[2].trim();
   meta.minutes=Math.max(1,Math.round(body.split(/\s+/).length/220));
+  meta.body=body;
   meta.html=md(body);
   return meta;
 }
@@ -116,15 +118,20 @@ rmSync('articles',{recursive:true,force:true});
 mkdirSync('articles',{recursive:true});
 for(const p of posts){
   const path=`/articles/${p.slug}/`;
-  const ld={"@context":"https://schema.org","@type":"Article",headline:p.title,description:p.description,datePublished:p.date,dateModified:p.updated||p.date,mainEntityOfPage:SITE+path,author:ORG_REF,publisher:ORG_REF};
+  const ld={"@context":"https://schema.org","@type":"Article",headline:p.title,description:p.description,datePublished:p.date,dateModified:p.updated||p.date,mainEntityOfPage:SITE+path,author:ORG_REF,publisher:ORG_REF,...(p.image?{image:SITE+p.image}:{})};
+  // FAQPage schema from a "## Frequently asked questions" section: each "### Question" plus its paragraphs is one Q&A.
+  const fm=p.body.match(/^## Frequently asked questions\n([\s\S]*?)(?=^## |$(?![\s\S]))/m);
+  const plain=t=>t.replace(/!\[[^\]]*\]\([^)]*\)/g,'').replace(/\[([^\]]+)\]\([^)]+\)/g,'$1').replace(/\*\*?([^*]+)\*\*?/g,'$1').replace(/`/g,'').replace(/\s+/g,' ').trim();
+  const faqQs=fm?fm[1].split(/^### /m).slice(1).map(b=>{const [q,...a]=b.split('\n');return [q.trim(),plain(a.join(' '))]}).filter(x=>x[0]&&x[1]):[];
+  const faqLd=faqQs.length?{"@context":"https://schema.org","@type":"FAQPage",mainEntity:faqQs.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))}:null;
   const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:"Articles",item:SITE+"/articles/"},{"@type":"ListItem",position:3,name:p.title,item:SITE+path}]};
-  const extra=`<script type="application/ld+json">${JSON.stringify(ld)}</script>\n<script type="application/ld+json">${JSON.stringify(bc)}</script>\n`;
-  const html=head(`${p.title} | Dey Studio`,p.description,path,extra).replace('<meta name="twitter:card"',`<meta property="og:type" content="article">\n<meta property="article:published_time" content="${p.date}">\n<meta name="twitter:card"`)
+  const extra=[ld,bc,faqLd].filter(Boolean).map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
+  const html=head(`${p.title} | Dey Studio`,p.description,path,extra,p.image||'').replace('<meta name="twitter:card"',`<meta property="og:type" content="article">\n<meta property="article:published_time" content="${p.date}">\n<meta name="twitter:card"`)
    +`<main class="awrap art" id="main">
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/articles/">Articles</a></nav>
 <article>
 <h1>${esc(p.title)}</h1>
-<p class="meta"><time datetime="${p.date}">${fmt(p.date)}</time> · ${p.minutes} min read</p>
+<p class="meta"><time datetime="${p.date}">${fmt(p.date)}</time>${p.updated&&p.updated!==p.date?` · Updated <time datetime="${p.updated}">${fmt(p.updated)}</time>`:''} · ${p.minutes} min read</p>
 <p class="lede">${esc(p.description)}</p>
 <div class="prose">
 ${p.html}
