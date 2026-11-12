@@ -38,6 +38,60 @@ const TOOLS = [
     ['Which domains can I check?','Most domain extensions, including .com, .net, .org, .io and many country domains. If you enter a subdomain, we check the main domain it belongs to.']
    ]}
 ];
+
+// Service pages. Body fragment at pages-src/<slug>.html; <!--FAQ--> is replaced by the FAQ list, {{MAIL}} by MAIL.
+const SERVICES = [
+ {slug:'website-design-and-development',name:'Website design and development',short:'Website design and development',serviceType:'Website design and development',
+  title:'Website Design and Development for Small Businesses | Dey Studio',
+  description:'Dey Studio designs and builds fast business websites, landing pages and web apps for small businesses. Fixed quote in writing and support after launch.',
+  faq:[
+   ['How much does a business website cost?','A landing page starts at ₹8,000, a business website of 5 to 10 pages at ₹20,000, and a custom web app at ₹1,50,000. The final price depends on pages, features and content, and you get a fixed written quote before work starts.'],
+   ['How long does it take to build a website?','A landing page takes about 3 to 7 days and a business website 2 to 3 weeks. Delays usually come from waiting for text, photos and approvals, so sending these early shortens the project.'],
+   ['Which platforms do you build on?','We use WordPress and WooCommerce, Shopify, fast static sites and custom JavaScript apps. We recommend the simplest option that fits your budget and your plans for growth.'],
+   ['Do I own my website?','Yes. Your domain and content are registered in your name, and you receive the website files when the project is complete.'],
+   ['Do you offer support after launch?','Yes. Monthly maintenance starts at ₹2,000 and covers updates, backups, security checks and small changes.']
+  ]},
+ {slug:'ecommerce-website-development',name:'Ecommerce website development',short:'Ecommerce websites',serviceType:'Ecommerce website development',
+  title:'Ecommerce Website Development: Shopify and WooCommerce | Dey Studio',
+  description:'Dey Studio builds online shops on Shopify and WooCommerce with UPI and card payments, shipping and tax set up. Online shops from ₹50,000.',
+  faq:[
+   ['How much does an online shop cost?','An online shop starts at ₹50,000. The price depends on the number of products, payment and shipping setup, and design. You get a fixed written quote before work starts.'],
+   ['How long does it take to build an online shop?','About 4 to 6 weeks. The main delays are product photos, descriptions and prices arriving late.'],
+   ['Should I choose Shopify or WooCommerce?','Shopify is hosted and quick to launch, with a monthly fee paid to Shopify. WooCommerce runs on WordPress and gives more control, but you manage hosting and updates. We recommend the one that fits your budget and plans.'],
+   ['Can customers pay by UPI and card?','Yes. We connect payment gateways such as Razorpay so customers can pay by UPI and card. Each gateway charges a fee per payment, so check the rate before you choose.'],
+   ['Can I add products myself?','Yes. Both platforms have an admin area where you add products, change prices and manage orders without a developer.']
+  ]},
+ {slug:'google-ads-management',name:'Google Ads management',short:'Google Ads',serviceType:'Google Ads management',
+  title:'Google Ads Management for Small Businesses | Dey Studio',
+  description:'Dey Studio sets up and manages Google Ads for small businesses: keyword research, ad copy, landing pages, conversion tracking and monthly reports.',
+  faq:[
+   ['How much does Google Ads management cost?','Our fee is a fixed amount quoted in writing before work starts. Google charges your ad spend separately to your own account, and you set the budget.'],
+   ['How soon will I get enquiries?','Search ads can start sending visitors within days of launch. How many become enquiries depends on your offer, your website and the competition, so nobody can honestly promise a number of customers.'],
+   ['Do I need a website before running Google Ads?','You need a page for visitors to land on. If your site is slow or unclear, we fix it or build a landing page first, because ad spend on a weak page is wasted.'],
+   ['Will the ad account be in my name?','We recommend it. You own the account, the data and the billing, and you can leave at any time.'],
+   ['How do you measure results?','We set up conversion tracking for calls, form submissions and sales, then report what each enquiry costs.']
+  ]},
+ {slug:'facebook-ads-management',name:'Facebook and Instagram ads management',short:'Facebook and Instagram ads',serviceType:'Facebook and Instagram ads management',
+  title:'Facebook and Instagram Ads Management | Dey Studio',
+  description:'Dey Studio runs Facebook and Instagram ads for small businesses: audiences, creative, WhatsApp and lead campaigns, tracking and clear reporting.',
+  faq:[
+   ['How much does it cost to run Facebook ads?','Meta charges your ad spend to your own ad account, and you set the budget. Our management fee is a fixed amount quoted in writing before work starts.'],
+   ['Can Facebook ads send customers to WhatsApp?','Yes. Click-to-WhatsApp ads open a chat with your business, which suits shops, restaurants and service businesses that sell by conversation.'],
+   ['Do you create the ad images and text?','Yes. We write the ad text and prepare the creative, and we ask for your own photos and offers so the ads look like your business.'],
+   ['How do you track results?','We install the Meta pixel and, where it fits, the Conversions API, then report enquiries, messages or sales against your spend.'],
+   ['Facebook or Google Ads: which should I start with?','Google Ads reaches people already searching for what you sell. Facebook and Instagram ads reach people who may not be searching yet. Many businesses start with one and add the other once tracking works.']
+  ]},
+ {slug:'chatgpt-ads-management',name:'ChatGPT ads management',short:'ChatGPT ads',serviceType:'ChatGPT ads management',
+  title:'ChatGPT Ads Management for Small Businesses | Dey Studio',
+  description:'Dey Studio sets up and manages ChatGPT ads where available: tracking, landing pages, ad text and reporting. Starts with a small, measured test.',
+  faq:[
+   ['Are ChatGPT ads available in India?','Yes. OpenAI launched ChatGPT ads in India on 27 August 2026, with a minimum daily budget of ₹725 for rupee-billed accounts. Availability and rules differ by country, so we check before planning a campaign.'],
+   ['Can any business run ChatGPT ads?','No. Alcohol, tobacco, gambling and political content are barred, and outside the US, financial, health and legal services ads are generally prohibited. We tell you before you spend if your category is not allowed.'],
+   ['Do ChatGPT ads make ChatGPT recommend my business?','No. OpenAI says ads do not influence ChatGPT answers. The ad appears in a labelled block below the answer.'],
+   ['Should I start with a test?','Yes. We start with one offer, one landing page, working tracking and a small budget, then compare your cost per enquiry with other channels.'],
+   ['Where can I read more?','See our guide to a ChatGPT ads agency in India for costs, rules and how to choose one.']
+  ]}
+];
 const toolsNav = `<div class="cell tdd"><a class="tdd-t" href="/tools/">Tools<svg viewBox="0 0 12 8" width="12" height="8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="tdd-m">${TOOLS.map(t=>`<a href="/tools/${t.slug}/"><b>${t.name}</b><small>${t.blurb}</small></a>`).join('')}<a class="tdd-all" href="/tools/"><b>All tools &rarr;</b></a></div></div>`;
 const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 const inline = s => esc(s)
@@ -110,10 +164,50 @@ ${extra}</head>
   <a class="bar-cta" href="mailto:${MAIL}">Grow my business</a>
 </header>
 `;
-const foot=`<footer class="afoot"><div class="awrap"><span>&copy; 2026 Dey Studio</span><span>Moscow: Tverskaya Street, Building 15, 125009</span><span>Kolkata: 17 SN Paul Road, 700057</span><a href="/">Home</a><a href="/articles/">Articles</a><a href="/tools/">Tools</a><a href="/web-development-company-kolkata/">Web development in Kolkata</a><a href="https://wa.me/79507453399?text=Hi%20Dey%20Studio%2C%20I%27d%20like%20to%20grow%20my%20business." target="_blank" rel="noopener">WhatsApp</a><a href="mailto:${MAIL}">${MAIL}</a></div></footer>
-</body>
-</html>
-`;
+const wa = 'https://wa.me/79507453399?text=Hi%20Dey%20Studio%2C%20I%27d%20like%20to%20grow%20my%20business.';
+// Shared site footer. siteFooterEl(true) is the home-page version (with the big wordmark); siteFooter() adds the closing tags for generated pages.
+const siteFooterEl = (home=false) => {
+  const latest = (typeof posts!=='undefined'?posts:[]).slice(0,3);
+  const li = (h,t,ext) => `<li><a href="${h}"${ext?' target="_blank" rel="noopener"':''}>${t}</a></li>`;
+  return `<footer class="foot sf" data-nav="dark">
+  <div class="sf-in">
+    ${home?'<p class="giant" data-letters aria-hidden="true">Dey Studio</p>':''}
+    <div class="sf-top">
+      <div class="sf-brand">
+        <a class="sf-logo" href="/" aria-label="Dey Studio home"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M7 5h7.5a11 11 0 0 1 0 22H7z" fill="none" stroke="currentColor" stroke-width="3.6"/><circle cx="25.5" cy="6.5" r="3" fill="#6C9BFF"/></svg><span>Dey Studio</span></a>
+        <p>Websites and ads for small businesses that want more customers.</p>
+      </div>
+      <a class="sf-cta" href="mailto:${MAIL}?subject=Grow%20my%20business">Grow my business</a>
+    </div>
+    <nav class="sf-grid" aria-label="Footer">
+      <div class="sf-col"><p class="sf-h">Services</p><ul>
+        ${SERVICES.map(x=>li('/'+x.slug+'/',x.short)).join('\n        ')}
+        ${li('/web-development-company-kolkata/','Web development in Kolkata')}
+      </ul></div>
+      <div class="sf-col"><p class="sf-h">Articles</p><ul>
+        ${latest.map(x=>li('/articles/'+x.slug+'/',esc(x.title))).join('\n        ')}
+        ${li('/articles/','All articles &rarr;')}
+      </ul></div>
+      <div class="sf-col"><p class="sf-h">About</p><ul>
+        ${li('/#about','About Dey Studio')}
+        ${li('/#process','How we work')}
+        ${li('/#faq','Questions')}
+        ${li('/tools/','Free tools')}
+        ${li('https://github.com/dev-kleo','GitHub',true)}
+      </ul></div>
+      <div class="sf-col"><p class="sf-h">Contact</p>
+        <ul>
+          ${li('mailto:'+MAIL,MAIL)}
+          ${li(wa,'WhatsApp',true)}
+        </ul>
+        <address class="sf-addr"><span>Kolkata</span>17 SN Paul Road, 700057<span>Moscow</span>Tverskaya Street, Building 15, 125009</address>
+      </div>
+    </nav>
+    <div class="sf-bot"><span>&copy; 2026 Dey Studio</span><a href="#top">Back to top &uarr;</a></div>
+  </div>
+</footer>`;
+};
+const siteFooter = () => siteFooterEl(false)+`\n</body>\n</html>\n`;
 const files=existsSync('content')?readdirSync('content').filter(f=>f.endsWith('.md')&&!f.startsWith('_')):[];
 const posts=files.map(parse).sort((a,b)=>b.date.localeCompare(a.date));
 rmSync('articles',{recursive:true,force:true});
@@ -142,7 +236,7 @@ ${p.html}
 <aside class="acta"><h2>Want this working for your business?</h2><p>Tell us what you sell and where customers are slipping away. We reply to every message.</p><a class="btn" href="mailto:${MAIL}?subject=Grow%20my%20business">Grow my business</a></aside>
 </article>
 </main>
-`+foot;
+`+siteFooter();
   mkdirSync(`articles${path.slice(9)}`,{recursive:true});
   writeFileSync(`articles${path.slice(9)}index.html`,html);
 }
@@ -172,7 +266,7 @@ writeFileSync('articles/index.html',head('Articles: websites, ads and getting cu
 <p class="lede">Plain-language guides on websites, online shops and ads for owners who want more customers.</p>
 ${posts.length?`<ul class="idx">\n${list}\n</ul>`:'<p>First articles coming soon.</p>'}
 </main>
-`+foot);
+`+siteFooter());
 // Tools: /tools/ index and one page per tool (body fragment from tools-src/<slug>.html)
 mkdirSync('tools',{recursive:true});
 for(const t of TOOLS){
@@ -184,7 +278,7 @@ for(const t of TOOLS){
   const extra=[ld,bc,faq].filter(Boolean).map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
   mkdirSync(`tools/${t.slug}`,{recursive:true});
   writeFileSync(`tools/${t.slug}/index.html`,head(`${t.title} | Dey Studio`,t.description,path,extra,t.img)
-   +`<main class="awrap art tool" id="main">\n<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>\n${readFileSync(`tools-src/${t.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml)}\n</main>\n`+foot);
+   +`<main class="awrap art tool" id="main">\n<nav class="crumbs" aria-label="Breadcrumb"><a href="/tools/">Tools</a></nav>\n${readFileSync(`tools-src/${t.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml)}\n</main>\n`+siteFooter());
 }
 const toolList=TOOLS.map(t=>`<li><a href="/tools/${t.slug}/"><h2>${esc(t.name)}</h2><p>${esc(t.blurb)}</p><span>Open tool &rarr;</span></a></li>`).join('\n');
 writeFileSync('tools/index.html',head('Free tools for small business websites | Dey Studio','Free tools from Dey Studio, including a free domain age checker. No sign-up needed.','/tools/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Tools",url:SITE+"/tools/"})}</script>\n`,TOOLS[0].img)
@@ -195,7 +289,7 @@ writeFileSync('tools/index.html',head('Free tools for small business websites | 
 ${toolList}
 </ul>
 </main>
-`+foot);
+`+siteFooter());
 for(const pg of PAGES){
   const path=`/${pg.slug}/`;
   const svc={"@context":"https://schema.org","@graph":[
@@ -210,13 +304,27 @@ for(const pg of PAGES){
   const extra=[svc,bc,faq].map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
   mkdirSync(`${pg.slug}`,{recursive:true});
   writeFileSync(`${pg.slug}/index.html`,head(pg.title,pg.description,path,extra)
-   +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${pg.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+foot);
+   +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${pg.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+siteFooter());
 }
-const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
+// Service pages
+for(const sv of SERVICES){
+  const path=`/${sv.slug}/`;
+  const svc={"@context":"https://schema.org","@type":"Service",name:sv.name,serviceType:sv.serviceType,url:SITE+path,description:sv.description,provider:ORG_REF,areaServed:{"@type":"Country",name:"India"}};
+  const bc={"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:[{"@type":"ListItem",position:1,name:"Home",item:SITE+"/"},{"@type":"ListItem",position:2,name:sv.name,item:SITE+path}]};
+  const faq={"@context":"https://schema.org","@type":"FAQPage",mainEntity:sv.faq.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))};
+  const faqHtml=`<h2>Frequently asked questions</h2>\n`+sv.faq.map(([q,a])=>`<h3>${esc(q)}</h3>\n<p>${esc(a)}</p>`).join('\n');
+  const extra=[svc,bc,faq].map(o=>`<script type="application/ld+json">${JSON.stringify(o)}</script>\n`).join('');
+  mkdirSync(sv.slug,{recursive:true});
+  writeFileSync(`${sv.slug}/index.html`,head(sv.title,sv.description,path,extra)
+   +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${sv.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+siteFooter());
+}
+const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),...SERVICES.map(x=>[`/${x.slug}/`,'2026-11-13']),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers
 {const h=readFileSync('index.html','utf8');const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
+// Home page: shared footer between the <!--foot--> markers
+{const h=readFileSync('index.html','utf8');const n=h.replace(/<!--foot-->[\s\S]*?<!--\/foot-->/,()=>`<!--foot-->${siteFooterEl(true)}<!--/foot-->`);if(n!==h)writeFileSync('index.html',n)}
 // Keep the home page's stylesheet link in step with styles.css
 {const h=readFileSync('index.html','utf8');const n=h.replace(/href="\/?styles\.css(\?v=[a-f0-9]+)?"/,`href="/styles.css?v=${ver('styles.css')}"`);if(n!==h)writeFileSync('index.html',n)}
 console.log(`built ${posts.length} article(s)`);
