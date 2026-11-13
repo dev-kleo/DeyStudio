@@ -2,6 +2,7 @@
 title: Why your business website gets visitors but no customers
 description: Five fixable reasons a small business website brings in traffic but no enquiries, and what to change first.
 date: 2026-11-12
+updated: 2026-11-13
 ---
 Most small business owners who say "my website doesn't work" have a site that loads and looks fine. The problem is that it never asks a visitor to do anything, or asks in a way that is easy to ignore.
 
@@ -27,4 +28,4 @@ Visitors want a reason to trust you. Real photos, real customer comments and cle
 
 ## What to fix first
 
-Fix the headline and the main button before anything else. They cost little and change results fastest. If you want a second opinion on your own site, [send us the link](mailto:hello.deyabhishek@gmail.com) and we will tell you what we would change.
+Fix the headline and the main button before anything else. They cost little and change results fastest. For a full step-by-step check of tracking, forms, speed and follow-up, read our longer guide: [why is my website not generating leads](/articles/why-is-my-website-not-generating-leads/). If you want a second opinion on your own site, [send us the link](mailto:hello.deyabhishek@gmail.com) and we will tell you what we would change.
