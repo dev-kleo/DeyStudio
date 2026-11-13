@@ -222,7 +222,7 @@ details[open] p{animation:fade .45s var(--ease)}
 .close h2{font-size:clamp(2.25rem,5.2vw,5.5rem)}
 .close-side p{max-width:34ch;margin-bottom:28px;font-size:clamp(1.0625rem,1.25vw,1.25rem)}
 .foot{background:var(--ink);color:var(--ground);padding-top:clamp(24px,4vw,64px);padding-bottom:clamp(24px,3vw,40px)}
-.giant{margin:0;font-size:clamp(3rem,17.5vw,17rem);font-weight:300;letter-spacing:-.06em;line-height:.9;white-space:nowrap;overflow:hidden;padding-bottom:.14em}
+.giant{margin:0;font-size:clamp(3rem,17.5vw,14.5rem);font-weight:300;letter-spacing:-.06em;line-height:.9;white-space:nowrap;overflow:hidden;padding-bottom:.14em}
 .l{display:inline-block;transform:translateY(125%);transition:transform 1.1s var(--ease);transition-delay:calc(var(--n,0) * 45ms)}
 .in .l,.show-all .l{transform:none}
 .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 32px;margin-top:clamp(28px,4vw,56px);font-size:.9375rem}
@@ -876,6 +876,8 @@ h1,h2,.giant,.ticker-track span{font-family:var(--serif);font-weight:500;letter-
 .hero h1{letter-spacing:-.028em;font-weight:500}
 .giant{font-weight:500;letter-spacing:-.04em}
 .giant .l{background:linear-gradient(180deg,#faf9f5 15%,rgba(217,119,87,.45));-webkit-background-clip:text;background-clip:text}
+/* Wordmark: font cap keeps "Dey Studio" inside the 1144px footer column (was clipping the final "o"); letter padding lets the gradient clip reach the descender of "y". */
+.giant .l{padding-bottom:.2em;margin-bottom:-.2em}
 .hero{background:linear-gradient(180deg,#fdfcf9 0%,var(--ground) 55%,var(--tone) 100%)}
 .fl-box,.btn-light,.idx a:hover{background:#fffefb}
 .b.t{background:linear-gradient(145deg,var(--act),var(--act-deep))}
