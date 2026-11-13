@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 // Content hash appended to CSS links so browsers and the CDN never serve a stale stylesheet.
 const ver = f => createHash('md5').update(readFileSync(f)).digest('hex').slice(0,8);
 const SITE = 'https://deystudio.dev';
+const DEFAULT_OG = '/og/default.png'; // fallback social image for pages without their own
 const MAIL = 'hello.deyabhishek@gmail.com';
 const FOOTER_MAIL = 'hello@deystudio.dev';
 // Organization entity (home page graph; referenced by Article/WebApplication on other pages).
@@ -134,7 +135,7 @@ function parse(file){
   return meta;
 }
 const fmt=d=>new Date(d+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
-const head=(title,desc,path,extra='',img='')=>`<!doctype html>
+const head=(title,desc,path,extra='',img0='',img=img0||DEFAULT_OG)=>`<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -320,11 +321,21 @@ for(const sv of SERVICES){
   writeFileSync(`${sv.slug}/index.html`,head(sv.title,sv.description,path,extra)
    +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${sv.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+siteFooter());
 }
-const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),...SERVICES.map(x=>[`/${x.slug}/`,'2026-11-13']),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
+const urls=[['/','__HOME__'],['/articles/',posts[0]?.date],...posts.map(p=>[`/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),...SERVICES.map(x=>[`/${x.slug}/`,'2026-11-13']),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
+{const m=urls.filter(u=>u[1]&&u[1]!=='__HOME__').map(u=>u[1]).sort().pop();urls[0][1]=m||null}
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers
-{const h=readFileSync('index.html','utf8');const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
+{const h=readFileSync('index.html','utf8');
+const strip=t=>t.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&').replace(/&#39;|&apos;/g,"'").replace(/&quot;/g,'"').replace(/\s+/g,' ').trim();
+const homeFaq=[...h.matchAll(/<details[^>]*>\s*<summary>([\s\S]*?)<\/summary>\s*<p>([\s\S]*?)<\/p>\s*<\/details>/g)].map(m=>[strip(m[1]),strip(m[2])]);
+const FAQ_HOME=homeFaq.length?{"@type":"FAQPage","@id":SITE+"/#faq",mainEntity:homeFaq.map(([q,a])=>({"@type":"Question",name:q,acceptedAnswer:{"@type":"Answer",text:a}}))}:null;
+const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE,...(FAQ_HOME?[FAQ_HOME]:[])]})}</script><!--/ld-->`;
+const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
+// Home page: social tags between the <!--og--> markers
+{const h=readFileSync('index.html','utf8');const t=h.match(/<title>([\s\S]*?)<\/title>/)[1];const d=h.match(/<meta name="description" content="([^"]*)"/)[1];
+const blk=`<!--og--><meta property="og:type" content="website">\n<meta property="og:site_name" content="Dey Studio">\n<meta property="og:title" content="${t}">\n<meta property="og:description" content="${d}">\n<meta property="og:url" content="${SITE}/">\n<meta property="og:image" content="${SITE}${DEFAULT_OG}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta name="twitter:card" content="summary_large_image">\n<meta name="twitter:image" content="${SITE}${DEFAULT_OG}"><!--/og-->`;
+const n=/<!--og-->/.test(h)?h.replace(/<!--og-->[\s\S]*?<!--\/og-->/,()=>blk):h.replace(/(<!--\/ld-->)/,`$1\n${blk}`);if(n!==h)writeFileSync('index.html',n)}
 // Home page: shared footer between the <!--foot--> markers
 {const h=readFileSync('index.html','utf8');const n=h.replace(/<!--foot-->[\s\S]*?<!--\/foot-->/,()=>`<!--foot-->${siteFooterEl(true)}<!--/foot-->`);if(n!==h)writeFileSync('index.html',n)}
 // Keep the home page's stylesheet link in step with styles.css
