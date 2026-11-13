@@ -327,7 +327,8 @@ writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googleb
 // Home page: Organization + WebSite graph between the <!--ld--> markers
 {const h=readFileSync('index.html','utf8');
   // FAQPage from the visible <details> FAQ on the home page, so schema always matches the page.
-  const hq=[...h.matchAll(/<summary>([^<]+)<\/summary>\s*<p>([^<]+)<\/p>/g)].map(m=>({"@type":"Question",name:m[1].trim(),acceptedAnswer:{"@type":"Answer",text:m[2].trim()}}));
+  const strip=s=>s.replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+  const hq=[...h.matchAll(/<summary>([^<]+)<\/summary>\s*<p>([\s\S]*?)<\/p>/g)].map(m=>({"@type":"Question",name:m[1].trim(),acceptedAnswer:{"@type":"Answer",text:strip(m[2])}}));
   const HOME_FAQ=hq.length?{"@type":"FAQPage","@id":SITE+"/#faq",mainEntity:hq}:null;
   const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE,...(HOME_FAQ?[HOME_FAQ]:[])]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
 // Home page: shared footer between the <!--foot--> markers
