@@ -115,7 +115,7 @@ Self-serve buying is open in India and no agency relationship is required, so a 
 4. Ask to see a live account with dates, spend and sample size, not a screenshot of a percentage.
 5. Keep the ad account and billing in your own name, so you can leave without losing your data.
 6. Ask who sets up tracking and when. It should be done before the first rupee is spent.
-7. Get a fixed fee in writing. Nobody can honestly promise a number of customers.
+7. Get a fixed fee in writing. Nobody can promise a number of customers.
 8. Ask them to tell you if your industry is not allowed. A good agency says no before it takes your money.
 
 ## How do you start a ChatGPT ads test?
@@ -183,11 +183,3 @@ ChatGPT ads are paid placements below an answer. GEO, or generative engine optim
 Message us on WhatsApp or email with your website and what you sell. We reply with a fixed quote and a start date.
 
 This guide was last checked on 13 November 2026. ChatGPT ads are new and the rules are changing, so confirm current details with OpenAI before you spend.
-
-- [OpenAI rolls out ChatGPT Ads in India, exchange4media](https://www.exchange4media.com/digital-news/openai-rolls-out-chatgpt-ads-in-india-157677.html)
-- [OpenAI launches ChatGPT Ads in India, Analytics India Magazine](https://analyticsindiamag.com/ai-news/openai-launches-chatgpt-ads-in-india)
-- [ChatGPT ads arrive in India, Business Today](https://www.businesstoday.in/technology/artificial-intelligence/story/chatgpt-ads-arrive-in-india-as-openai-targets-free-go-users-in-major-revenue-push-ahead-of-ipo-551655-2026-08-27)
-- [OpenAI brings ChatGPT ads to India, Outlook](https://respawn.outlookindia.com/pop-culture/pop-culture-news/openai-brings-chatgpt-ads-to-india)
-- [OpenAI gains 32 ChatGPT ad markets in 5 days as India goes live, PPC Land](https://ppc.land/openai-gains-32-chatgpt-ad-markets-in-5-days-as-india-goes-live/)
-- [ChatGPT ads in India: what's live and how to test, eCorpIT](https://ecorpit.com/chatgpt-ads-india-2027/)
-- [Paid media news (ChatGPT Ads cost targets, creative defaults, US revenue-per-visit data), Search Engine Journal](https://www.searchenginejournal.com/category/paid-media/)

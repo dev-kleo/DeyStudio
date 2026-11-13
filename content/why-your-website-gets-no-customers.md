@@ -28,4 +28,4 @@ Visitors want a reason to trust you. Real photos, real customer comments and cle
 
 ## What to fix first
 
-Fix the headline and the main button before anything else. They cost little and change results fastest. For a full step-by-step check of tracking, forms, speed and follow-up, read our longer guide: [why is my website not generating leads](/why-is-my-website-not-generating-leads/). If you want a second opinion on your own site, [send us the link](mailto:hello.deyabhishek@gmail.com) and we will tell you what we would change.
+Fix the headline and the main button before anything else. They cost little and change results fastest. For a full step-by-step check of tracking, forms, speed and follow-up, read our longer guide: [why is my website not generating leads](/why-is-my-website-not-generating-leads/). If you want a second opinion on your own site, [send us the link](mailto:hello@deystudio.dev) and we will tell you what we would change.

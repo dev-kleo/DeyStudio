@@ -106,7 +106,7 @@ Collect reviews and complete your Google Business Profile. Local Services Ads di
 
 We are a small studio, and [our Google Ads management service](/google-ads-management/) works like this. We quote a fixed management fee in writing before any work starts. Google bills your ad spend to your own account, and we recommend that the account is in your name so you keep the data and the billing and can leave at any time. We set up conversion tracking for calls and form submissions, and we report what each enquiry costs. If your site is slow or unclear, we fix it or build a landing page first, because ad spend on a weak page is wasted.
 
-We do not promise a number of customers. Nobody can promise that before seeing your market. If you want a view of your site and a rough plan, [send us your link](mailto:hello.deyabhishek@gmail.com?subject=Google%20Ads%20for%20plumbers).
+We do not promise a number of customers. Nobody can promise that before seeing your market. If you want a view of your site and a rough plan, [send us your link](mailto:hello@deystudio.dev?subject=Google%20Ads%20for%20plumbers).
 
 ## Frequently asked questions
 

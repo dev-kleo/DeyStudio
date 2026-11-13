@@ -128,7 +128,7 @@ Most of the nine fixes are small jobs. A redesign is worth considering in a few 
 
 ## Get a second opinion
 
-Send us your link and a line about what you sell and where your customers are. We will look at the first screen, the contact path and the mobile speed, and tell you what we would fix first. [Send us the link](mailto:hello.deyabhishek@gmail.com?subject=Website%20review) or message us on [WhatsApp](https://wa.me/79507453399).
+Send us your link and a line about what you sell and where your customers are. We will look at the first screen, the contact path and the mobile speed, and tell you what we would fix first. [Send us the link](mailto:hello@deystudio.dev?subject=Website%20review) or message us on [WhatsApp](https://wa.me/79507453399).
 
 ## Frequently asked questions
 

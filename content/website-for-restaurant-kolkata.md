@@ -106,7 +106,7 @@ Orders placed on your own site avoid that commission. You still pay the payment 
 
 ![Example: 600 delivery orders at ₹450 with 20% commission cost ₹54,000; moving 120 orders to your own site saves about ₹9,720 a month](/img/restaurant-direct-ordering-saving.png)
 
-With 600 delivery orders a month at ₹450 each, sales are ₹2,70,000. At 20% commission you pay ₹54,000. If 120 of those orders come through your own site, you avoid ₹10,800 in commission and pay about ₹1,080 in gateway fees, a net saving of roughly ₹9,720 a month. A ₹50,000 ordering site would pay back in about five months under these assumptions. These numbers are an example, not a promise. Your order volume and the share of customers who switch will decide the real figure.
+With 600 delivery orders a month at ₹450 each, sales are ₹2,70,000. At 20% commission you pay ₹54,000. If 120 of those orders come through your own site, you avoid ₹10,800 in commission and pay about ₹1,080 in gateway fees, a net saving of roughly ₹9,720 a month. A ₹50,000 ordering site would pay back in about five months under these assumptions. These numbers are an example. Your order volume and the share of customers who switch decide the real figure.
 
 ### How to move regulars to direct orders
 
@@ -211,7 +211,7 @@ Yes, if the site is built with an editor you can use, and you should ask for thi
 
 ### Will my restaurant website show up on Google?
 
-It can rank for your restaurant name, your neighbourhood and your dishes. For searches like restaurants near me, your Google Business Profile matters as much as the website. Rankings take weeks or months and nobody can honestly promise a position.
+It can rank for your restaurant name, your neighbourhood and your dishes. For searches like restaurants near me, your Google Business Profile matters as much as the website. Rankings take weeks or months and nobody can promise a position.
 
 ### Should I leave Zomato and Swiggy once I have a website?
 
@@ -222,9 +222,3 @@ Many restaurants stay listed, because the apps bring new customers. Use your web
 Yes. We work with clients across India and abroad by WhatsApp, video call and email, and our offices are listed in Kolkata and Moscow.
 
 Prices for Dey Studio are our own starting prices. Commission figures are reported ranges and change with each contract. Last checked on 13 November 2026.
-
-- [Why Bengaluru restaurants are threatening to boycott Zomato and Swiggy, The Week](https://www.theweek.in/news/biz-tech/2026/07/30/wont-take-orders-anymore-why-bengaluru-restaurants-are-threatening-to-boycott-zomato-swiggy.amp.html)
-- [Rapido slashes food delivery charges to counter Zomato and Swiggy, CIO Insider](https://www.cioinsiderindia.com/news/rapido-slashes-food-delivery-charges-by-half-to-counter-zomato-swiggy-nwid-7249.html)
-- [Reduce Zomato and Swiggy commission, DineOpen (payment gateway fee of 1.5% to 2%)](https://www.dineopen.com/blog/reduce-zomato-swiggy-commission-restaurants.html)
-- [Restaurant website cost India, ColorWhistle](https://colorwhistle.com/website-cost-features/restaurant-website-cost-india/)
-- [Restaurant and cafe website design in Kolkata, Codingclave](https://codingclave.com/website-for/restaurant-cafe-in-kolkata)
