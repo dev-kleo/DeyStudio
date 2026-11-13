@@ -134,11 +134,11 @@ Start with Google Ads if you sell something people already search for by name, b
 
 ### Paid ads or organic AI visibility?
 
-A paid placement buys attention under an answer. Organic visibility, which means being cited or recommended inside the answer, comes from clear pages, consistent business details across the web, and reviews and listings on other sites. Many businesses need both, and the landing page decides how many clicks become enquiries. Our guide on [why a website gets visitors but no customers](/articles/why-your-website-gets-no-customers/) covers the fixes that matter most.
+A paid placement buys attention under an answer. Organic visibility, which means being cited or recommended inside the answer, comes from clear pages, consistent business details across the web, and reviews and listings on other sites. Many businesses need both, and the landing page decides how many clicks become enquiries. Our guide on [why a website gets visitors but no customers](/why-your-website-gets-no-customers/) covers the fixes that matter most.
 
 ## How Dey Studio can help
 
-We build websites and online shops and run Google, Facebook and ChatGPT ads for small businesses in India and abroad. Every client gets a fixed price in writing before work starts. If you are in West Bengal, see our page on [web development in Kolkata](/web-development-company-kolkata/), or read our guide to a [website for a restaurant in Kolkata](/articles/website-for-restaurant-kolkata/). Send us your website and what you sell, and we will tell you whether ChatGPT ads fit your business yet.
+We build websites and online shops and run Google, Facebook and ChatGPT ads for small businesses in India and abroad. Every client gets a fixed price in writing before work starts. If you are in West Bengal, see our page on [web development in Kolkata](/web-development-company-kolkata/), or read our guide to a [website for a restaurant in Kolkata](/website-for-restaurant-kolkata/). Send us your website and what you sell, and we will tell you whether ChatGPT ads fit your business yet.
 
 ## Frequently asked questions
 

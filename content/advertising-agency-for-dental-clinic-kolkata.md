@@ -89,7 +89,7 @@ An agency that answers all nine plainly and in writing has worked in regulated f
 
 This is our suggested order, not a regulatory requirement.
 
-Month one is the foundation. Build or fix the website, correct the Google Business Profile and directory listings, and set up call, form and WhatsApp tracking. Our guide on [why a website is not generating leads](/articles/why-is-my-website-not-generating-leads/) shows how to test the contact path on a phone.
+Month one is the foundation. Build or fix the website, correct the Google Business Profile and directory listings, and set up call, form and WhatsApp tracking. Our guide on [why a website is not generating leads](/why-is-my-website-not-generating-leads/) shows how to test the contact path on a phone.
 
 Month two is content. Add one factual page for each main treatment and check each one against the code with the dentist. Look at the tracking to see which pages bring enquiries.
 

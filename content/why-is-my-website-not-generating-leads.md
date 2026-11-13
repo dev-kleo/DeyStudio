@@ -5,7 +5,7 @@ date: 2026-11-13
 ---
 If you are asking why your website is not generating leads, the cause is almost always one of three things. The leads are being lost before they reach you, the wrong people are visiting, or the page gives the right people no reason to act. Each one can be found in about 30 minutes and fixed without a rebuild, in most cases.
 
-This guide goes in the order we use on client sites. We start with the checks that cost nothing, move to the nine most common causes, and finish with a step-by-step diagnosis you can run today. Our shorter piece, [why your business website gets visitors but no customers](/articles/why-your-website-gets-no-customers/), covers the five fastest fixes if you only have ten minutes.
+This guide goes in the order we use on client sites. We start with the checks that cost nothing, move to the nine most common causes, and finish with a step-by-step diagnosis you can run today. Our shorter piece, [why your business website gets visitors but no customers](/why-your-website-gets-no-customers/), covers the five fastest fixes if you only have ten minutes.
 
 ## Check you are not losing leads you already get
 
@@ -118,7 +118,7 @@ First, your Google Business Profile. Fill in the categories, the service area, h
 
 Second, WhatsApp. Offer a WhatsApp button next to the form, with a pre-filled message such as "Hi, I would like a quote for a website". Some visitors will never fill in a form but will send a message.
 
-Third, location pages. A page titled "Web development company in Kolkata" with real details about the work you do there will match local searches better than a general services page. We built [our own Kolkata page](/web-development-company-kolkata/) this way. If you are a restaurant owner, our guide to a [restaurant website in Kolkata](/articles/website-for-restaurant-kolkata/) lists what customers look for.
+Third, location pages. A page titled "Web development company in Kolkata" with real details about the work you do there will match local searches better than a general services page. We built [our own Kolkata page](/web-development-company-kolkata/) this way. If you are a restaurant owner, our guide to a [restaurant website in Kolkata](/website-for-restaurant-kolkata/) lists what customers look for.
 
 ## How long fixes take and when a redesign makes sense
 

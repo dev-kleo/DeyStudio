@@ -175,7 +175,7 @@ A catalogue with photos and prices, an advance-order or enquiry form for festiva
 
 ## How Dey Studio can help
 
-We build restaurant websites and online shops for businesses in Kolkata and across India, on WordPress and WooCommerce, Shopify or a fast static site, from a one-page menu site to a site with direct ordering. We can also run Google and Facebook ads once the site is live. See our page on [web development in Kolkata](/web-development-company-kolkata/) for prices and process, and our guide on [why a business website gets visitors but no customers](/articles/why-your-website-gets-no-customers/) for the fixes that matter most. If you are weighing a new ad channel, read our guide to [ChatGPT ads for Indian businesses](/articles/chatgpt-ads-agency-india/).
+We build restaurant websites and online shops for businesses in Kolkata and across India, on WordPress and WooCommerce, Shopify or a fast static site, from a one-page menu site to a site with direct ordering. We can also run Google and Facebook ads once the site is live. See our page on [web development in Kolkata](/web-development-company-kolkata/) for prices and process, and our guide on [why a business website gets visitors but no customers](/why-your-website-gets-no-customers/) for the fixes that matter most. If you are weighing a new ad channel, read our guide to [ChatGPT ads for Indian businesses](/chatgpt-ads-agency-india/).
 
 Send us your menu, your location and what you want the site to do, and we will reply with a fixed quote and a start date.
 

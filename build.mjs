@@ -186,7 +186,7 @@ const siteFooterEl = (home=false) => {
         ${li('/web-development-company-kolkata/','Web development in Kolkata')}
       </ul></div>
       <div class="sf-col sf-art"><p class="sf-h">Articles</p><ul>
-        ${latest.map(x=>li('/articles/'+x.slug+'/',esc(x.title))).join('\n        ')}
+        ${latest.map(x=>li('/'+x.slug+'/',esc(x.title))).join('\n        ')}
         ${li('/articles/','All articles &rarr;')}
       </ul></div>
       <div class="sf-col sf-abt"><p class="sf-h">About</p><ul>
@@ -214,7 +214,8 @@ const posts=files.map(parse).sort((a,b)=>b.date.localeCompare(a.date));
 rmSync('articles',{recursive:true,force:true});
 mkdirSync('articles',{recursive:true});
 for(const p of posts){
-  const path=`/articles/${p.slug}/`;
+  if(['articles','tools','img','og','fonts','pages-src','content','tools-src','web-development-company-kolkata','website-design-and-development','ecommerce-website-development','google-ads-management','facebook-ads-management','chatgpt-ads-management'].includes(p.slug)) throw new Error('slug clashes with a reserved path: '+p.slug);
+  const path=`/${p.slug}/`;
   const ld={"@context":"https://schema.org","@type":"Article",headline:p.title,description:p.description,datePublished:p.date,dateModified:p.updated||p.date,mainEntityOfPage:SITE+path,author:ORG_REF,publisher:ORG_REF,...(p.image?{image:SITE+p.image}:{})};
   // FAQPage schema from a "## Frequently asked questions" section: each "### Question" plus its paragraphs is one Q&A.
   const fm=p.body.match(/^## Frequently asked questions\n([\s\S]*?)(?=^## |$(?![\s\S]))/m);
@@ -238,8 +239,8 @@ ${p.html}
 </article>
 </main>
 `+siteFooter();
-  mkdirSync(`articles${path.slice(9)}`,{recursive:true});
-  writeFileSync(`articles${path.slice(9)}index.html`,html);
+  mkdirSync(p.slug,{recursive:true});
+  writeFileSync(`${p.slug}/index.html`,html);
 }
 // Local service pages. Body fragment at pages-src/<slug>.html; <!--FAQ--> is replaced by the FAQ list, {{MAIL}} by MAIL.
 const KOL_ID = SITE + '/web-development-company-kolkata/#localbusiness';
@@ -260,7 +261,7 @@ const PAGES = [{slug:'web-development-company-kolkata',url:'/web-development-com
    ['Which platforms do you build on?','We use WordPress and WooCommerce, Shopify, fast static sites and custom JavaScript apps. We recommend the simplest option that fits your budget and your plans for growth.'],
    ['How do I get started?','Message us on WhatsApp or email and describe your business and what you want the website to do. We reply with a fixed quote and a delivery date.']
   ]}];
-const list=[...posts,...PAGES].sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<li><a href="${p.url||`/articles/${p.slug}/`}"><time datetime="${p.date}">${fmt(p.date)}</time><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p><span>Read article &rarr;</span></a></li>`).join('\n');
+const list=[...posts,...PAGES].sort((a,b)=>b.date.localeCompare(a.date)).map(p=>`<li><a href="${p.url||`/${p.slug}/`}"><time datetime="${p.date}">${fmt(p.date)}</time><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p><span>Read article &rarr;</span></a></li>`).join('\n');
 writeFileSync('articles/index.html',head('Articles: websites, ads and getting customers | Dey Studio','Plain-language guides on websites, online shops and ads (Google, Facebook, ChatGPT) for small business owners who want more customers.','/articles/',`<script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage",name:"Dey Studio Articles",url:SITE+"/articles/"})}</script>\n`)
  +`<main class="awrap" id="main">
 <h1 class="idx-h">Articles</h1>
@@ -319,7 +320,7 @@ for(const sv of SERVICES){
   writeFileSync(`${sv.slug}/index.html`,head(sv.title,sv.description,path,extra)
    +`<main class="awrap art tool" id="main">\n${readFileSync(`pages-src/${sv.slug}.html`,'utf8').replace('<!--FAQ-->',faqHtml).replaceAll('{{MAIL}}',MAIL)}\n</main>\n`+siteFooter());
 }
-const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/articles/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),...SERVICES.map(x=>[`/${x.slug}/`,'2026-11-13']),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
+const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/${p.slug}/`,p.updated||p.date]),...PAGES.map(p=>[`/${p.slug}/`,p.date]),...SERVICES.map(x=>[`/${x.slug}/`,'2026-11-13']),['/tools/',TOOLS[0]?.date],...TOOLS.map(t=>[`/tools/${t.slug}/`,t.date])];
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers

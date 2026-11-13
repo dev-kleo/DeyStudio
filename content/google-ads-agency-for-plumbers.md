@@ -98,7 +98,7 @@ Ads send people to a phone and a page. If either is weak, more spend does not he
 
 Answer the phone. A plumber who misses calls pays for the click and loses the job to the next listing. If nobody can pick up, a voicemail that promises a call back within the hour is better than silence.
 
-Give each service its own page. A visitor who searches "water heater replacement" should land on a page about water heater replacement, with your phone number, your service area and your prices or price range. Our guide on [why your website is not generating leads](/articles/why-is-my-website-not-generating-leads/) shows how to test a page on a phone before you send traffic to it. If your site needs work, see our [website design and development](/website-design-and-development/) service.
+Give each service its own page. A visitor who searches "water heater replacement" should land on a page about water heater replacement, with your phone number, your service area and your prices or price range. Our guide on [why your website is not generating leads](/why-is-my-website-not-generating-leads/) shows how to test a page on a phone before you send traffic to it. If your site needs work, see our [website design and development](/website-design-and-development/) service.
 
 Collect reviews and complete your Google Business Profile. Local Services Ads display your reviews, and searchers read them in the standard results as well.
 
