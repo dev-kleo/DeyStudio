@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 const ver = f => createHash('md5').update(readFileSync(f)).digest('hex').slice(0,8);
 const SITE = 'https://deystudio.dev';
 const DEFAULT_OG = '/og/default.png'; // fallback social image for pages without their own
-const MAIL = 'hello.deyabhishek@gmail.com';
+const MAIL = 'hello@deystudio.dev';
 const FOOTER_MAIL = 'hello@deystudio.dev';
 // Organization entity (home page graph; referenced by Article/WebApplication on other pages).
 // Add the studio's real profile URLs (LinkedIn company page, X, etc.) to SAME_AS when they exist.

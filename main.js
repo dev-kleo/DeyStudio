@@ -3,7 +3,7 @@
 
   // Edit these two values. Leave whatsapp empty to hide the WhatsApp option.
   // whatsapp: digits only, with country code, no plus sign (example: 79991234567).
-  var CONTACT = { email: 'hello.deyabhishek@gmail.com', whatsapp: '79507453399' };
+  var CONTACT = { email: 'hello@deystudio.dev', whatsapp: '79507453399' };
 
   var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var bar = document.querySelector('.bar');
