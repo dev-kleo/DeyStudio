@@ -182,8 +182,6 @@ ChatGPT ads are paid placements below an answer. GEO, or generative engine optim
 
 Message us on WhatsApp or email with your website and what you sell. We reply with a fixed quote and a start date.
 
-## Sources
-
 This guide was last checked on 13 November 2026. ChatGPT ads are new and the rules are changing, so confirm current details with OpenAI before you spend.
 
 - [OpenAI rolls out ChatGPT Ads in India, exchange4media](https://www.exchange4media.com/digital-news/openai-rolls-out-chatgpt-ads-in-india-157677.html)

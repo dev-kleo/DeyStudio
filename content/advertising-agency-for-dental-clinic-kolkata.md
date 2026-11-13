@@ -126,12 +126,3 @@ There is no reliable public price list for Kolkata. One Mumbai agency lists a co
 ### Can I pay an agency per patient it brings in?
 
 We advise against it. The code bars using agents or canvassers to obtain patients commercially, and a per-patient fee looks very similar. A flat fee for defined work, such as a website, listings and tracking, is easier to defend.
-
-## Sources
-
-- [Medical Dialogues: NDC warns dentists against unethical social media advertising](https://medicaldialogues.in/news/health/doctors/national-dental-commission-warns-dentists-against-unethical-social-media-advertising-181335)
-- [BioSpectrum India: Government sets up National Dental Commission](https://www.biospectrumindia.com/news/16/27521/government-sets-up-national-dental-commission.html)
-- [Revised Dentists (Code of Ethics) Regulations, 2014, as published by the Tamil Nadu Dental Council](https://tndentalcouncil.com/source/dentists_code_of_ethics_regulations_2014.pdf)
-- [Redefine Web: dental PPC advertising](https://redefineweb.com/blog/dental-ppc-advertising/)
-- [Delmain: dental patient acquisition costs](https://delmain.co/?p=258821)
-- [ApsteQ: dental marketing in Mumbai](https://apsteq-site.pages.dev/dental-marketing-india/mumbai/)

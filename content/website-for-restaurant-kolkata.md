@@ -221,8 +221,6 @@ Many restaurants stay listed, because the apps bring new customers. Use your web
 
 Yes. We work with clients across India and abroad by WhatsApp, video call and email, and our offices are listed in Kolkata and Moscow.
 
-## Sources
-
 Prices for Dey Studio are our own starting prices. Commission figures are reported ranges and change with each contract. Last checked on 13 November 2026.
 
 - [Why Bengaluru restaurants are threatening to boycott Zomato and Swiggy, The Week](https://www.theweek.in/news/biz-tech/2026/07/30/wont-take-orders-anymore-why-bengaluru-restaurants-are-threatening-to-boycott-zomato-swiggy.amp.html)

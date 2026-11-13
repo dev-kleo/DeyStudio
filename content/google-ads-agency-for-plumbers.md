@@ -133,13 +133,3 @@ Yes, and many plumbers do. The risk is waste, because a missed negative keyword 
 ### Should I use lead services like Angi instead of Google Ads?
 
 Lead services sell the same lead to several plumbers, so you compete for each one and your effective cost rises. Google Ads leads come straight from searches and are not resold to several plumbers, but you carry the work of tracking and improving the account. Many plumbers use both and compare cost per booked job.
-
-## Sources
-
-- [SearchLight Digital: plumbing Google Ads cost per lead, 2026 benchmarks](https://searchlightdigital.io/plumbing-google-ads-cost-per-lead/)
-- [SearchLight Digital: Google Local Services Ads cost per lead](https://searchlightdigital.io/google-local-service-ads-cost-per-lead/)
-- [The Ad Spend: Google Ads search for plumbing](https://theadspend.com/blog/google-ads-search-plumbing)
-- [Housecall Pro: Google Ads for plumbers](https://www.housecallpro.com/resources/google-ads-for-plumbers/)
-- [Stackmatix: plumbing Google Ads lead generation](https://www.stackmatix.com/blog/plumbing-google-ads-lead-generation)
-- [Clicks Geek: Google Ads for plumbers](https://clicksgeek.com/google-ads-for-plumbers/)
-- [ppc.io: PPC for plumbers](https://ppc.io/industries/plumbers)
