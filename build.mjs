@@ -13,11 +13,12 @@ const ORG_ID = SITE + '/#organization';
 const ORG_REF = {"@type":"Organization","@id":ORG_ID,name:"Dey Studio",url:SITE+"/"};
 const ORG = {"@type":"Organization","@id":ORG_ID,name:"Dey Studio",url:SITE+"/",
   logo:{"@type":"ImageObject",url:SITE+"/logo.png",width:512,height:512},
-  description:"Dey Studio designs and builds websites and online shops and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.",
+  description:"Dey Studio is an advertising agency in India that designs and builds websites and online shops and runs Google, Facebook and ChatGPT ads for small businesses that want more customers.",
+  areaServed:{"@type":"Country",name:"India"},
   email:MAIL,
   contactPoint:{"@type":"ContactPoint",contactType:"customer support",email:MAIL,availableLanguage:"English"},
   location:[{"@type":"Place",name:"Dey Studio Moscow",address:{"@type":"PostalAddress",streetAddress:"Tverskaya Street, Building 15",addressLocality:"Moscow",postalCode:"125009",addressCountry:"RU"}},{"@type":"Place",name:"Dey Studio Kolkata",address:{"@type":"PostalAddress",streetAddress:"17 SN Paul Road",addressLocality:"Kolkata",addressRegion:"West Bengal",postalCode:"700057",addressCountry:"IN"}}],
-  knowsAbout:["Website design","Website development","Ecommerce websites","Google Ads","Facebook ads","ChatGPT ads"],
+  knowsAbout:["Advertising","Website design","Website development","Ecommerce websites","Google Ads","Facebook ads","ChatGPT ads"],
   ...(SAME_AS.length?{sameAs:SAME_AS}:{})};
 const WEBSITE = {"@type":"WebSite","@id":SITE+"/#website",url:SITE+"/",name:"Dey Studio",inLanguage:"en",publisher:{"@id":ORG_ID}};
 
@@ -324,7 +325,11 @@ const urls=[['/',null],['/articles/',posts[0]?.date],...posts.map(p=>[`/${p.slug
 writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u,d])=>`  <url><loc>${SITE}${u}</loc>${d?`<lastmod>${d}</lastmod>`:''}</url>`).join('\n')}\n</urlset>\n`);
 writeFileSync('robots.txt',['*','OAI-SearchBot','ChatGPT-User','GPTBot','Googlebot','Bingbot'].map(a=>`User-agent: ${a}\nAllow: /\n`).join('\n')+`\nSitemap: ${SITE}/sitemap.xml\n`);
 // Home page: Organization + WebSite graph between the <!--ld--> markers
-{const h=readFileSync('index.html','utf8');const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
+{const h=readFileSync('index.html','utf8');
+  // FAQPage from the visible <details> FAQ on the home page, so schema always matches the page.
+  const hq=[...h.matchAll(/<summary>([^<]+)<\/summary>\s*<p>([^<]+)<\/p>/g)].map(m=>({"@type":"Question",name:m[1].trim(),acceptedAnswer:{"@type":"Answer",text:m[2].trim()}}));
+  const HOME_FAQ=hq.length?{"@type":"FAQPage","@id":SITE+"/#faq",mainEntity:hq}:null;
+  const blk=`<!--ld--><script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@graph":[ORG,WEBSITE,...(HOME_FAQ?[HOME_FAQ]:[])]})}</script><!--/ld-->`;const n=h.replace(/<!--ld-->[\s\S]*?<!--\/ld-->/,()=>blk);if(n!==h)writeFileSync('index.html',n)}
 // Home page: shared footer between the <!--foot--> markers
 {const h=readFileSync('index.html','utf8');const n=h.replace(/<!--foot-->[\s\S]*?<!--\/foot-->/,()=>`<!--foot-->${siteFooterEl(true)}<!--/foot-->`);if(n!==h)writeFileSync('index.html',n)}
 // Keep the home page's stylesheet link in step with styles.css
