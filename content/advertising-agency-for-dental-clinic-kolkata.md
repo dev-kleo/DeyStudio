@@ -99,7 +99,7 @@ Month three is the decision on paid search. If you run it, start with a small bu
 
 We are a web and ads studio with an office in Kolkata. We build business websites through [website design and development](/website-design-and-development/), and we run Google Ads with a fixed management fee quoted in writing before work starts. Google bills your ad spend to your own account, we recommend the account is in your name, and we set up tracking for calls and form submissions and report what each enquiry costs. Our [Kolkata web development page](/web-development-company-kolkata/) lists what we build locally.
 
-The dentist decides what is published, and we are not lawyers. For a dental clinic we would not write testimonials, post before-and-after photos or use "best dentist" wording. If you want a second opinion on your current website or ads, [send us your link](mailto:hello.deyabhishek@gmail.com?subject=Dental%20clinic%20website%20review).
+The dentist decides what is published, and we are not lawyers. For a dental clinic we would not write testimonials, post before-and-after photos or use "best dentist" wording. If you want a second opinion on your current website or ads, [send us your link](mailto:hello@deystudio.dev?subject=Dental%20clinic%20website%20review).
 
 ## Frequently asked questions
 
