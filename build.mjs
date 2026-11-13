@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 const ver = f => createHash('md5').update(readFileSync(f)).digest('hex').slice(0,8);
 const SITE = 'https://deystudio.dev';
 const MAIL = 'hello.deyabhishek@gmail.com';
+const FOOTER_MAIL = 'hello@deystudio.dev';
 // Organization entity (home page graph; referenced by Article/WebApplication on other pages).
 // Add the studio's real profile URLs (LinkedIn company page, X, etc.) to SAME_AS when they exist.
 const SAME_AS = [];
@@ -197,7 +198,7 @@ const siteFooterEl = (home=false) => {
       </ul></div>
       <div class="sf-col sf-con"><p class="sf-h">Contact</p>
         <ul>
-          ${li('mailto:'+MAIL,MAIL)}
+          ${li('mailto:'+FOOTER_MAIL,FOOTER_MAIL)}
           ${li(wa,'WhatsApp',true)}
         </ul>
         <address class="sf-addr"><span>Kolkata</span>17 SN Paul Road, 700057<span>Moscow</span>Tverskaya Street, Building 15, 125009</address>
